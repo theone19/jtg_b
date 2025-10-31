@@ -121,18 +121,20 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Snapshot: 'Snapshot'
 });
 
-exports.Prisma.UserScalarFieldEnum = {
-  id: 'id',
+exports.Prisma.AppUserScalarFieldEnum = {
+  userId: 'userId',
+  userName: 'userName',
   email: 'email',
-  name: 'name'
-};
-
-exports.Prisma.PostScalarFieldEnum = {
-  id: 'id',
-  title: 'title',
-  content: 'content',
-  published: 'published',
-  authorId: 'authorId'
+  password: 'password',
+  fullName: 'fullName',
+  mobileNo: 'mobileNo',
+  isActive: 'isActive',
+  isAdmin: 'isAdmin',
+  isLimitDevices: 'isLimitDevices',
+  limitDeviceCount: 'limitDeviceCount',
+  profilePic: 'profilePic',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.SortOrder = {
@@ -147,8 +149,7 @@ exports.Prisma.NullsOrder = {
 
 
 exports.Prisma.ModelName = {
-  User: 'User',
-  Post: 'Post'
+  AppUser: 'AppUser'
 };
 
 /**
