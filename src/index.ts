@@ -1,10 +1,10 @@
 import { Elysia, t } from "elysia";
 import { cors } from "@elysiajs/cors";
 import { swagger } from "@elysiajs/swagger";
-import { staticPlugin } from "@elysiajs/static";
 import { jwt } from "@elysiajs/jwt";
 // import bcrypt from "bcryptjs";
 import prisma from "./db";
+import { staticPlugin } from "@elysiajs/static";
 
 const rootApi = Bun.env.ROOT_API || "/api";
 
@@ -23,11 +23,11 @@ const app = new Elysia({ prefix: rootApi })
   // Global auth middleware
   .onBeforeHandle(async ({ headers, jwt, set, path }) => {
     // Allow unauthenticated access to login or public routes
-    const publicPaths = [      
-      `${rootApi}/public`,      
+    const publicPaths = [
+      `${rootApi}/public`,
       `${rootApi}/register`,
-      `${rootApi}/login`,    
-      `${rootApi}/user`,    
+      `${rootApi}/login`,
+      `${rootApi}/user`,
     ];
     // console.log(`Current path: ${path}`);
     // if (publicPaths.includes(path)) return;
@@ -41,7 +41,7 @@ const app = new Elysia({ prefix: rootApi })
     if (!payload) {
       set.status = 403;
       return { error: "Invalid token" };
-    }    
+    }
   })
 
   // Register a new user
@@ -104,17 +104,17 @@ const app = new Elysia({ prefix: rootApi })
         return { error: "Invalid email, userName or password" };
       }
 
-      // console.log("User found:", user);      
+      // console.log("User found:", user);
       // const isValid = await bcrypt.compare(password, user.password);
       const isValid = await Bun.password.verify(password, user.password);
-      
+
       if (!isValid) {
         set.status = 401;
         return { error: "Invalid email, userName or password" };
       }
 
       const token = await jwt.sign({ id: user.userId });
-      return { data: { token }, message: "Login successful", success: true };
+      return { data: { token: token, userId: user.userId }, message: "Login successful", success: true };
     },
     {
       body: t.Object({
