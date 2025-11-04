@@ -18,6 +18,26 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  * 
  */
 export type AppUser = $Result.DefaultSelection<Prisma.$AppUserPayload>
+/**
+ * Model MenuList
+ * 
+ */
+export type MenuList = $Result.DefaultSelection<Prisma.$MenuListPayload>
+/**
+ * Model SubMenu
+ * 
+ */
+export type SubMenu = $Result.DefaultSelection<Prisma.$SubMenuPayload>
+/**
+ * Model Department
+ * 
+ */
+export type Department = $Result.DefaultSelection<Prisma.$DepartmentPayload>
+/**
+ * Model Employee
+ * 
+ */
+export type Employee = $Result.DefaultSelection<Prisma.$EmployeePayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -146,6 +166,46 @@ export class PrismaClient<
     * ```
     */
   get appUser(): Prisma.AppUserDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.menuList`: Exposes CRUD operations for the **MenuList** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more MenuLists
+    * const menuLists = await prisma.menuList.findMany()
+    * ```
+    */
+  get menuList(): Prisma.MenuListDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.subMenu`: Exposes CRUD operations for the **SubMenu** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SubMenus
+    * const subMenus = await prisma.subMenu.findMany()
+    * ```
+    */
+  get subMenu(): Prisma.SubMenuDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.department`: Exposes CRUD operations for the **Department** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Departments
+    * const departments = await prisma.department.findMany()
+    * ```
+    */
+  get department(): Prisma.DepartmentDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.employee`: Exposes CRUD operations for the **Employee** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Employees
+    * const employees = await prisma.employee.findMany()
+    * ```
+    */
+  get employee(): Prisma.EmployeeDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -587,7 +647,11 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    AppUser: 'AppUser'
+    AppUser: 'AppUser',
+    MenuList: 'MenuList',
+    SubMenu: 'SubMenu',
+    Department: 'Department',
+    Employee: 'Employee'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -606,7 +670,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "appUser"
+      modelProps: "appUser" | "menuList" | "subMenu" | "department" | "employee"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -673,6 +737,270 @@ export namespace Prisma {
           count: {
             args: Prisma.AppUserCountArgs<ExtArgs>
             result: $Utils.Optional<AppUserCountAggregateOutputType> | number
+          }
+        }
+      }
+      MenuList: {
+        payload: Prisma.$MenuListPayload<ExtArgs>
+        fields: Prisma.MenuListFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.MenuListFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MenuListPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.MenuListFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MenuListPayload>
+          }
+          findFirst: {
+            args: Prisma.MenuListFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MenuListPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.MenuListFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MenuListPayload>
+          }
+          findMany: {
+            args: Prisma.MenuListFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MenuListPayload>[]
+          }
+          create: {
+            args: Prisma.MenuListCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MenuListPayload>
+          }
+          createMany: {
+            args: Prisma.MenuListCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.MenuListDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MenuListPayload>
+          }
+          update: {
+            args: Prisma.MenuListUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MenuListPayload>
+          }
+          deleteMany: {
+            args: Prisma.MenuListDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.MenuListUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.MenuListUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MenuListPayload>
+          }
+          aggregate: {
+            args: Prisma.MenuListAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMenuList>
+          }
+          groupBy: {
+            args: Prisma.MenuListGroupByArgs<ExtArgs>
+            result: $Utils.Optional<MenuListGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.MenuListCountArgs<ExtArgs>
+            result: $Utils.Optional<MenuListCountAggregateOutputType> | number
+          }
+        }
+      }
+      SubMenu: {
+        payload: Prisma.$SubMenuPayload<ExtArgs>
+        fields: Prisma.SubMenuFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SubMenuFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubMenuPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SubMenuFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubMenuPayload>
+          }
+          findFirst: {
+            args: Prisma.SubMenuFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubMenuPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SubMenuFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubMenuPayload>
+          }
+          findMany: {
+            args: Prisma.SubMenuFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubMenuPayload>[]
+          }
+          create: {
+            args: Prisma.SubMenuCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubMenuPayload>
+          }
+          createMany: {
+            args: Prisma.SubMenuCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.SubMenuDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubMenuPayload>
+          }
+          update: {
+            args: Prisma.SubMenuUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubMenuPayload>
+          }
+          deleteMany: {
+            args: Prisma.SubMenuDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SubMenuUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.SubMenuUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubMenuPayload>
+          }
+          aggregate: {
+            args: Prisma.SubMenuAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSubMenu>
+          }
+          groupBy: {
+            args: Prisma.SubMenuGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SubMenuGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SubMenuCountArgs<ExtArgs>
+            result: $Utils.Optional<SubMenuCountAggregateOutputType> | number
+          }
+        }
+      }
+      Department: {
+        payload: Prisma.$DepartmentPayload<ExtArgs>
+        fields: Prisma.DepartmentFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DepartmentFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DepartmentPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DepartmentFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DepartmentPayload>
+          }
+          findFirst: {
+            args: Prisma.DepartmentFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DepartmentPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DepartmentFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DepartmentPayload>
+          }
+          findMany: {
+            args: Prisma.DepartmentFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DepartmentPayload>[]
+          }
+          create: {
+            args: Prisma.DepartmentCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DepartmentPayload>
+          }
+          createMany: {
+            args: Prisma.DepartmentCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.DepartmentDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DepartmentPayload>
+          }
+          update: {
+            args: Prisma.DepartmentUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DepartmentPayload>
+          }
+          deleteMany: {
+            args: Prisma.DepartmentDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DepartmentUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.DepartmentUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DepartmentPayload>
+          }
+          aggregate: {
+            args: Prisma.DepartmentAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDepartment>
+          }
+          groupBy: {
+            args: Prisma.DepartmentGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DepartmentGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DepartmentCountArgs<ExtArgs>
+            result: $Utils.Optional<DepartmentCountAggregateOutputType> | number
+          }
+        }
+      }
+      Employee: {
+        payload: Prisma.$EmployeePayload<ExtArgs>
+        fields: Prisma.EmployeeFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.EmployeeFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.EmployeeFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>
+          }
+          findFirst: {
+            args: Prisma.EmployeeFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.EmployeeFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>
+          }
+          findMany: {
+            args: Prisma.EmployeeFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>[]
+          }
+          create: {
+            args: Prisma.EmployeeCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>
+          }
+          createMany: {
+            args: Prisma.EmployeeCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.EmployeeDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>
+          }
+          update: {
+            args: Prisma.EmployeeUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>
+          }
+          deleteMany: {
+            args: Prisma.EmployeeDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.EmployeeUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.EmployeeUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>
+          }
+          aggregate: {
+            args: Prisma.EmployeeAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateEmployee>
+          }
+          groupBy: {
+            args: Prisma.EmployeeGroupByArgs<ExtArgs>
+            result: $Utils.Optional<EmployeeGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.EmployeeCountArgs<ExtArgs>
+            result: $Utils.Optional<EmployeeCountAggregateOutputType> | number
           }
         }
       }
@@ -773,6 +1101,10 @@ export namespace Prisma {
   }
   export type GlobalOmitConfig = {
     appUser?: AppUserOmit
+    menuList?: MenuListOmit
+    subMenu?: SubMenuOmit
+    department?: DepartmentOmit
+    employee?: EmployeeOmit
   }
 
   /* Types for Logging */
@@ -847,6 +1179,67 @@ export namespace Prisma {
    * Count Types
    */
 
+
+  /**
+   * Count Type MenuListCountOutputType
+   */
+
+  export type MenuListCountOutputType = {
+    SubMenu: number
+  }
+
+  export type MenuListCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    SubMenu?: boolean | MenuListCountOutputTypeCountSubMenuArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * MenuListCountOutputType without action
+   */
+  export type MenuListCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MenuListCountOutputType
+     */
+    select?: MenuListCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * MenuListCountOutputType without action
+   */
+  export type MenuListCountOutputTypeCountSubMenuArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SubMenuWhereInput
+  }
+
+
+  /**
+   * Count Type DepartmentCountOutputType
+   */
+
+  export type DepartmentCountOutputType = {
+    Employee: number
+  }
+
+  export type DepartmentCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Employee?: boolean | DepartmentCountOutputTypeCountEmployeeArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * DepartmentCountOutputType without action
+   */
+  export type DepartmentCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DepartmentCountOutputType
+     */
+    select?: DepartmentCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * DepartmentCountOutputType without action
+   */
+  export type DepartmentCountOutputTypeCountEmployeeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmployeeWhereInput
+  }
 
 
   /**
@@ -1861,6 +2254,4135 @@ export namespace Prisma {
 
 
   /**
+   * Model MenuList
+   */
+
+  export type AggregateMenuList = {
+    _count: MenuListCountAggregateOutputType | null
+    _avg: MenuListAvgAggregateOutputType | null
+    _sum: MenuListSumAggregateOutputType | null
+    _min: MenuListMinAggregateOutputType | null
+    _max: MenuListMaxAggregateOutputType | null
+  }
+
+  export type MenuListAvgAggregateOutputType = {
+    menuId: number | null
+    sorting: number | null
+  }
+
+  export type MenuListSumAggregateOutputType = {
+    menuId: number | null
+    sorting: number | null
+  }
+
+  export type MenuListMinAggregateOutputType = {
+    menuId: number | null
+    menuName: string | null
+    menuIcon: string | null
+    sorting: number | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type MenuListMaxAggregateOutputType = {
+    menuId: number | null
+    menuName: string | null
+    menuIcon: string | null
+    sorting: number | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type MenuListCountAggregateOutputType = {
+    menuId: number
+    menuName: number
+    menuIcon: number
+    sorting: number
+    isActive: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type MenuListAvgAggregateInputType = {
+    menuId?: true
+    sorting?: true
+  }
+
+  export type MenuListSumAggregateInputType = {
+    menuId?: true
+    sorting?: true
+  }
+
+  export type MenuListMinAggregateInputType = {
+    menuId?: true
+    menuName?: true
+    menuIcon?: true
+    sorting?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type MenuListMaxAggregateInputType = {
+    menuId?: true
+    menuName?: true
+    menuIcon?: true
+    sorting?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type MenuListCountAggregateInputType = {
+    menuId?: true
+    menuName?: true
+    menuIcon?: true
+    sorting?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type MenuListAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which MenuList to aggregate.
+     */
+    where?: MenuListWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MenuLists to fetch.
+     */
+    orderBy?: MenuListOrderByWithRelationInput | MenuListOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: MenuListWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MenuLists from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MenuLists.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned MenuLists
+    **/
+    _count?: true | MenuListCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: MenuListAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: MenuListSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: MenuListMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: MenuListMaxAggregateInputType
+  }
+
+  export type GetMenuListAggregateType<T extends MenuListAggregateArgs> = {
+        [P in keyof T & keyof AggregateMenuList]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateMenuList[P]>
+      : GetScalarType<T[P], AggregateMenuList[P]>
+  }
+
+
+
+
+  export type MenuListGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MenuListWhereInput
+    orderBy?: MenuListOrderByWithAggregationInput | MenuListOrderByWithAggregationInput[]
+    by: MenuListScalarFieldEnum[] | MenuListScalarFieldEnum
+    having?: MenuListScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: MenuListCountAggregateInputType | true
+    _avg?: MenuListAvgAggregateInputType
+    _sum?: MenuListSumAggregateInputType
+    _min?: MenuListMinAggregateInputType
+    _max?: MenuListMaxAggregateInputType
+  }
+
+  export type MenuListGroupByOutputType = {
+    menuId: number
+    menuName: string
+    menuIcon: string
+    sorting: number
+    isActive: boolean
+    createdAt: Date
+    updatedAt: Date
+    _count: MenuListCountAggregateOutputType | null
+    _avg: MenuListAvgAggregateOutputType | null
+    _sum: MenuListSumAggregateOutputType | null
+    _min: MenuListMinAggregateOutputType | null
+    _max: MenuListMaxAggregateOutputType | null
+  }
+
+  type GetMenuListGroupByPayload<T extends MenuListGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<MenuListGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof MenuListGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], MenuListGroupByOutputType[P]>
+            : GetScalarType<T[P], MenuListGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type MenuListSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    menuId?: boolean
+    menuName?: boolean
+    menuIcon?: boolean
+    sorting?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    SubMenu?: boolean | MenuList$SubMenuArgs<ExtArgs>
+    _count?: boolean | MenuListCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["menuList"]>
+
+
+
+  export type MenuListSelectScalar = {
+    menuId?: boolean
+    menuName?: boolean
+    menuIcon?: boolean
+    sorting?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type MenuListOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"menuId" | "menuName" | "menuIcon" | "sorting" | "isActive" | "createdAt" | "updatedAt", ExtArgs["result"]["menuList"]>
+  export type MenuListInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    SubMenu?: boolean | MenuList$SubMenuArgs<ExtArgs>
+    _count?: boolean | MenuListCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $MenuListPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "MenuList"
+    objects: {
+      SubMenu: Prisma.$SubMenuPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      menuId: number
+      menuName: string
+      menuIcon: string
+      sorting: number
+      isActive: boolean
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["menuList"]>
+    composites: {}
+  }
+
+  type MenuListGetPayload<S extends boolean | null | undefined | MenuListDefaultArgs> = $Result.GetResult<Prisma.$MenuListPayload, S>
+
+  type MenuListCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<MenuListFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: MenuListCountAggregateInputType | true
+    }
+
+  export interface MenuListDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['MenuList'], meta: { name: 'MenuList' } }
+    /**
+     * Find zero or one MenuList that matches the filter.
+     * @param {MenuListFindUniqueArgs} args - Arguments to find a MenuList
+     * @example
+     * // Get one MenuList
+     * const menuList = await prisma.menuList.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends MenuListFindUniqueArgs>(args: SelectSubset<T, MenuListFindUniqueArgs<ExtArgs>>): Prisma__MenuListClient<$Result.GetResult<Prisma.$MenuListPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one MenuList that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {MenuListFindUniqueOrThrowArgs} args - Arguments to find a MenuList
+     * @example
+     * // Get one MenuList
+     * const menuList = await prisma.menuList.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends MenuListFindUniqueOrThrowArgs>(args: SelectSubset<T, MenuListFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MenuListClient<$Result.GetResult<Prisma.$MenuListPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first MenuList that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MenuListFindFirstArgs} args - Arguments to find a MenuList
+     * @example
+     * // Get one MenuList
+     * const menuList = await prisma.menuList.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends MenuListFindFirstArgs>(args?: SelectSubset<T, MenuListFindFirstArgs<ExtArgs>>): Prisma__MenuListClient<$Result.GetResult<Prisma.$MenuListPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first MenuList that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MenuListFindFirstOrThrowArgs} args - Arguments to find a MenuList
+     * @example
+     * // Get one MenuList
+     * const menuList = await prisma.menuList.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends MenuListFindFirstOrThrowArgs>(args?: SelectSubset<T, MenuListFindFirstOrThrowArgs<ExtArgs>>): Prisma__MenuListClient<$Result.GetResult<Prisma.$MenuListPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more MenuLists that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MenuListFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all MenuLists
+     * const menuLists = await prisma.menuList.findMany()
+     * 
+     * // Get first 10 MenuLists
+     * const menuLists = await prisma.menuList.findMany({ take: 10 })
+     * 
+     * // Only select the `menuId`
+     * const menuListWithMenuIdOnly = await prisma.menuList.findMany({ select: { menuId: true } })
+     * 
+     */
+    findMany<T extends MenuListFindManyArgs>(args?: SelectSubset<T, MenuListFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MenuListPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a MenuList.
+     * @param {MenuListCreateArgs} args - Arguments to create a MenuList.
+     * @example
+     * // Create one MenuList
+     * const MenuList = await prisma.menuList.create({
+     *   data: {
+     *     // ... data to create a MenuList
+     *   }
+     * })
+     * 
+     */
+    create<T extends MenuListCreateArgs>(args: SelectSubset<T, MenuListCreateArgs<ExtArgs>>): Prisma__MenuListClient<$Result.GetResult<Prisma.$MenuListPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many MenuLists.
+     * @param {MenuListCreateManyArgs} args - Arguments to create many MenuLists.
+     * @example
+     * // Create many MenuLists
+     * const menuList = await prisma.menuList.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends MenuListCreateManyArgs>(args?: SelectSubset<T, MenuListCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a MenuList.
+     * @param {MenuListDeleteArgs} args - Arguments to delete one MenuList.
+     * @example
+     * // Delete one MenuList
+     * const MenuList = await prisma.menuList.delete({
+     *   where: {
+     *     // ... filter to delete one MenuList
+     *   }
+     * })
+     * 
+     */
+    delete<T extends MenuListDeleteArgs>(args: SelectSubset<T, MenuListDeleteArgs<ExtArgs>>): Prisma__MenuListClient<$Result.GetResult<Prisma.$MenuListPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one MenuList.
+     * @param {MenuListUpdateArgs} args - Arguments to update one MenuList.
+     * @example
+     * // Update one MenuList
+     * const menuList = await prisma.menuList.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends MenuListUpdateArgs>(args: SelectSubset<T, MenuListUpdateArgs<ExtArgs>>): Prisma__MenuListClient<$Result.GetResult<Prisma.$MenuListPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more MenuLists.
+     * @param {MenuListDeleteManyArgs} args - Arguments to filter MenuLists to delete.
+     * @example
+     * // Delete a few MenuLists
+     * const { count } = await prisma.menuList.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends MenuListDeleteManyArgs>(args?: SelectSubset<T, MenuListDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more MenuLists.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MenuListUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many MenuLists
+     * const menuList = await prisma.menuList.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends MenuListUpdateManyArgs>(args: SelectSubset<T, MenuListUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one MenuList.
+     * @param {MenuListUpsertArgs} args - Arguments to update or create a MenuList.
+     * @example
+     * // Update or create a MenuList
+     * const menuList = await prisma.menuList.upsert({
+     *   create: {
+     *     // ... data to create a MenuList
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the MenuList we want to update
+     *   }
+     * })
+     */
+    upsert<T extends MenuListUpsertArgs>(args: SelectSubset<T, MenuListUpsertArgs<ExtArgs>>): Prisma__MenuListClient<$Result.GetResult<Prisma.$MenuListPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of MenuLists.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MenuListCountArgs} args - Arguments to filter MenuLists to count.
+     * @example
+     * // Count the number of MenuLists
+     * const count = await prisma.menuList.count({
+     *   where: {
+     *     // ... the filter for the MenuLists we want to count
+     *   }
+     * })
+    **/
+    count<T extends MenuListCountArgs>(
+      args?: Subset<T, MenuListCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], MenuListCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a MenuList.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MenuListAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends MenuListAggregateArgs>(args: Subset<T, MenuListAggregateArgs>): Prisma.PrismaPromise<GetMenuListAggregateType<T>>
+
+    /**
+     * Group by MenuList.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MenuListGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends MenuListGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: MenuListGroupByArgs['orderBy'] }
+        : { orderBy?: MenuListGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, MenuListGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMenuListGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the MenuList model
+   */
+  readonly fields: MenuListFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for MenuList.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__MenuListClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    SubMenu<T extends MenuList$SubMenuArgs<ExtArgs> = {}>(args?: Subset<T, MenuList$SubMenuArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubMenuPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the MenuList model
+   */
+  interface MenuListFieldRefs {
+    readonly menuId: FieldRef<"MenuList", 'Int'>
+    readonly menuName: FieldRef<"MenuList", 'String'>
+    readonly menuIcon: FieldRef<"MenuList", 'String'>
+    readonly sorting: FieldRef<"MenuList", 'Int'>
+    readonly isActive: FieldRef<"MenuList", 'Boolean'>
+    readonly createdAt: FieldRef<"MenuList", 'DateTime'>
+    readonly updatedAt: FieldRef<"MenuList", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * MenuList findUnique
+   */
+  export type MenuListFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MenuList
+     */
+    select?: MenuListSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MenuList
+     */
+    omit?: MenuListOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MenuListInclude<ExtArgs> | null
+    /**
+     * Filter, which MenuList to fetch.
+     */
+    where: MenuListWhereUniqueInput
+  }
+
+  /**
+   * MenuList findUniqueOrThrow
+   */
+  export type MenuListFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MenuList
+     */
+    select?: MenuListSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MenuList
+     */
+    omit?: MenuListOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MenuListInclude<ExtArgs> | null
+    /**
+     * Filter, which MenuList to fetch.
+     */
+    where: MenuListWhereUniqueInput
+  }
+
+  /**
+   * MenuList findFirst
+   */
+  export type MenuListFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MenuList
+     */
+    select?: MenuListSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MenuList
+     */
+    omit?: MenuListOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MenuListInclude<ExtArgs> | null
+    /**
+     * Filter, which MenuList to fetch.
+     */
+    where?: MenuListWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MenuLists to fetch.
+     */
+    orderBy?: MenuListOrderByWithRelationInput | MenuListOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for MenuLists.
+     */
+    cursor?: MenuListWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MenuLists from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MenuLists.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of MenuLists.
+     */
+    distinct?: MenuListScalarFieldEnum | MenuListScalarFieldEnum[]
+  }
+
+  /**
+   * MenuList findFirstOrThrow
+   */
+  export type MenuListFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MenuList
+     */
+    select?: MenuListSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MenuList
+     */
+    omit?: MenuListOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MenuListInclude<ExtArgs> | null
+    /**
+     * Filter, which MenuList to fetch.
+     */
+    where?: MenuListWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MenuLists to fetch.
+     */
+    orderBy?: MenuListOrderByWithRelationInput | MenuListOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for MenuLists.
+     */
+    cursor?: MenuListWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MenuLists from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MenuLists.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of MenuLists.
+     */
+    distinct?: MenuListScalarFieldEnum | MenuListScalarFieldEnum[]
+  }
+
+  /**
+   * MenuList findMany
+   */
+  export type MenuListFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MenuList
+     */
+    select?: MenuListSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MenuList
+     */
+    omit?: MenuListOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MenuListInclude<ExtArgs> | null
+    /**
+     * Filter, which MenuLists to fetch.
+     */
+    where?: MenuListWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MenuLists to fetch.
+     */
+    orderBy?: MenuListOrderByWithRelationInput | MenuListOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing MenuLists.
+     */
+    cursor?: MenuListWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MenuLists from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MenuLists.
+     */
+    skip?: number
+    distinct?: MenuListScalarFieldEnum | MenuListScalarFieldEnum[]
+  }
+
+  /**
+   * MenuList create
+   */
+  export type MenuListCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MenuList
+     */
+    select?: MenuListSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MenuList
+     */
+    omit?: MenuListOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MenuListInclude<ExtArgs> | null
+    /**
+     * The data needed to create a MenuList.
+     */
+    data: XOR<MenuListCreateInput, MenuListUncheckedCreateInput>
+  }
+
+  /**
+   * MenuList createMany
+   */
+  export type MenuListCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many MenuLists.
+     */
+    data: MenuListCreateManyInput | MenuListCreateManyInput[]
+  }
+
+  /**
+   * MenuList update
+   */
+  export type MenuListUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MenuList
+     */
+    select?: MenuListSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MenuList
+     */
+    omit?: MenuListOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MenuListInclude<ExtArgs> | null
+    /**
+     * The data needed to update a MenuList.
+     */
+    data: XOR<MenuListUpdateInput, MenuListUncheckedUpdateInput>
+    /**
+     * Choose, which MenuList to update.
+     */
+    where: MenuListWhereUniqueInput
+  }
+
+  /**
+   * MenuList updateMany
+   */
+  export type MenuListUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update MenuLists.
+     */
+    data: XOR<MenuListUpdateManyMutationInput, MenuListUncheckedUpdateManyInput>
+    /**
+     * Filter which MenuLists to update
+     */
+    where?: MenuListWhereInput
+    /**
+     * Limit how many MenuLists to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * MenuList upsert
+   */
+  export type MenuListUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MenuList
+     */
+    select?: MenuListSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MenuList
+     */
+    omit?: MenuListOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MenuListInclude<ExtArgs> | null
+    /**
+     * The filter to search for the MenuList to update in case it exists.
+     */
+    where: MenuListWhereUniqueInput
+    /**
+     * In case the MenuList found by the `where` argument doesn't exist, create a new MenuList with this data.
+     */
+    create: XOR<MenuListCreateInput, MenuListUncheckedCreateInput>
+    /**
+     * In case the MenuList was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<MenuListUpdateInput, MenuListUncheckedUpdateInput>
+  }
+
+  /**
+   * MenuList delete
+   */
+  export type MenuListDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MenuList
+     */
+    select?: MenuListSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MenuList
+     */
+    omit?: MenuListOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MenuListInclude<ExtArgs> | null
+    /**
+     * Filter which MenuList to delete.
+     */
+    where: MenuListWhereUniqueInput
+  }
+
+  /**
+   * MenuList deleteMany
+   */
+  export type MenuListDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which MenuLists to delete
+     */
+    where?: MenuListWhereInput
+    /**
+     * Limit how many MenuLists to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * MenuList.SubMenu
+   */
+  export type MenuList$SubMenuArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubMenu
+     */
+    select?: SubMenuSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubMenu
+     */
+    omit?: SubMenuOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubMenuInclude<ExtArgs> | null
+    where?: SubMenuWhereInput
+    orderBy?: SubMenuOrderByWithRelationInput | SubMenuOrderByWithRelationInput[]
+    cursor?: SubMenuWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SubMenuScalarFieldEnum | SubMenuScalarFieldEnum[]
+  }
+
+  /**
+   * MenuList without action
+   */
+  export type MenuListDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MenuList
+     */
+    select?: MenuListSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MenuList
+     */
+    omit?: MenuListOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MenuListInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model SubMenu
+   */
+
+  export type AggregateSubMenu = {
+    _count: SubMenuCountAggregateOutputType | null
+    _avg: SubMenuAvgAggregateOutputType | null
+    _sum: SubMenuSumAggregateOutputType | null
+    _min: SubMenuMinAggregateOutputType | null
+    _max: SubMenuMaxAggregateOutputType | null
+  }
+
+  export type SubMenuAvgAggregateOutputType = {
+    subMenuId: number | null
+    menuId: number | null
+    sorting: number | null
+  }
+
+  export type SubMenuSumAggregateOutputType = {
+    subMenuId: number | null
+    menuId: number | null
+    sorting: number | null
+  }
+
+  export type SubMenuMinAggregateOutputType = {
+    subMenuId: number | null
+    menuId: number | null
+    subMenuName: string | null
+    subMenuIcon: string | null
+    subMenuRoute: string | null
+    sorting: number | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type SubMenuMaxAggregateOutputType = {
+    subMenuId: number | null
+    menuId: number | null
+    subMenuName: string | null
+    subMenuIcon: string | null
+    subMenuRoute: string | null
+    sorting: number | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type SubMenuCountAggregateOutputType = {
+    subMenuId: number
+    menuId: number
+    subMenuName: number
+    subMenuIcon: number
+    subMenuRoute: number
+    sorting: number
+    isActive: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type SubMenuAvgAggregateInputType = {
+    subMenuId?: true
+    menuId?: true
+    sorting?: true
+  }
+
+  export type SubMenuSumAggregateInputType = {
+    subMenuId?: true
+    menuId?: true
+    sorting?: true
+  }
+
+  export type SubMenuMinAggregateInputType = {
+    subMenuId?: true
+    menuId?: true
+    subMenuName?: true
+    subMenuIcon?: true
+    subMenuRoute?: true
+    sorting?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type SubMenuMaxAggregateInputType = {
+    subMenuId?: true
+    menuId?: true
+    subMenuName?: true
+    subMenuIcon?: true
+    subMenuRoute?: true
+    sorting?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type SubMenuCountAggregateInputType = {
+    subMenuId?: true
+    menuId?: true
+    subMenuName?: true
+    subMenuIcon?: true
+    subMenuRoute?: true
+    sorting?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type SubMenuAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SubMenu to aggregate.
+     */
+    where?: SubMenuWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SubMenus to fetch.
+     */
+    orderBy?: SubMenuOrderByWithRelationInput | SubMenuOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SubMenuWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SubMenus from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SubMenus.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned SubMenus
+    **/
+    _count?: true | SubMenuCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: SubMenuAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SubMenuSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SubMenuMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SubMenuMaxAggregateInputType
+  }
+
+  export type GetSubMenuAggregateType<T extends SubMenuAggregateArgs> = {
+        [P in keyof T & keyof AggregateSubMenu]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSubMenu[P]>
+      : GetScalarType<T[P], AggregateSubMenu[P]>
+  }
+
+
+
+
+  export type SubMenuGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SubMenuWhereInput
+    orderBy?: SubMenuOrderByWithAggregationInput | SubMenuOrderByWithAggregationInput[]
+    by: SubMenuScalarFieldEnum[] | SubMenuScalarFieldEnum
+    having?: SubMenuScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SubMenuCountAggregateInputType | true
+    _avg?: SubMenuAvgAggregateInputType
+    _sum?: SubMenuSumAggregateInputType
+    _min?: SubMenuMinAggregateInputType
+    _max?: SubMenuMaxAggregateInputType
+  }
+
+  export type SubMenuGroupByOutputType = {
+    subMenuId: number
+    menuId: number
+    subMenuName: string
+    subMenuIcon: string
+    subMenuRoute: string
+    sorting: number
+    isActive: boolean
+    createdAt: Date
+    updatedAt: Date
+    _count: SubMenuCountAggregateOutputType | null
+    _avg: SubMenuAvgAggregateOutputType | null
+    _sum: SubMenuSumAggregateOutputType | null
+    _min: SubMenuMinAggregateOutputType | null
+    _max: SubMenuMaxAggregateOutputType | null
+  }
+
+  type GetSubMenuGroupByPayload<T extends SubMenuGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SubMenuGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SubMenuGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SubMenuGroupByOutputType[P]>
+            : GetScalarType<T[P], SubMenuGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SubMenuSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    subMenuId?: boolean
+    menuId?: boolean
+    subMenuName?: boolean
+    subMenuIcon?: boolean
+    subMenuRoute?: boolean
+    sorting?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    menuList?: boolean | MenuListDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["subMenu"]>
+
+
+
+  export type SubMenuSelectScalar = {
+    subMenuId?: boolean
+    menuId?: boolean
+    subMenuName?: boolean
+    subMenuIcon?: boolean
+    subMenuRoute?: boolean
+    sorting?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type SubMenuOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"subMenuId" | "menuId" | "subMenuName" | "subMenuIcon" | "subMenuRoute" | "sorting" | "isActive" | "createdAt" | "updatedAt", ExtArgs["result"]["subMenu"]>
+  export type SubMenuInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    menuList?: boolean | MenuListDefaultArgs<ExtArgs>
+  }
+
+  export type $SubMenuPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "SubMenu"
+    objects: {
+      menuList: Prisma.$MenuListPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      subMenuId: number
+      menuId: number
+      subMenuName: string
+      subMenuIcon: string
+      subMenuRoute: string
+      sorting: number
+      isActive: boolean
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["subMenu"]>
+    composites: {}
+  }
+
+  type SubMenuGetPayload<S extends boolean | null | undefined | SubMenuDefaultArgs> = $Result.GetResult<Prisma.$SubMenuPayload, S>
+
+  type SubMenuCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SubMenuFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SubMenuCountAggregateInputType | true
+    }
+
+  export interface SubMenuDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['SubMenu'], meta: { name: 'SubMenu' } }
+    /**
+     * Find zero or one SubMenu that matches the filter.
+     * @param {SubMenuFindUniqueArgs} args - Arguments to find a SubMenu
+     * @example
+     * // Get one SubMenu
+     * const subMenu = await prisma.subMenu.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SubMenuFindUniqueArgs>(args: SelectSubset<T, SubMenuFindUniqueArgs<ExtArgs>>): Prisma__SubMenuClient<$Result.GetResult<Prisma.$SubMenuPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one SubMenu that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SubMenuFindUniqueOrThrowArgs} args - Arguments to find a SubMenu
+     * @example
+     * // Get one SubMenu
+     * const subMenu = await prisma.subMenu.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SubMenuFindUniqueOrThrowArgs>(args: SelectSubset<T, SubMenuFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SubMenuClient<$Result.GetResult<Prisma.$SubMenuPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SubMenu that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubMenuFindFirstArgs} args - Arguments to find a SubMenu
+     * @example
+     * // Get one SubMenu
+     * const subMenu = await prisma.subMenu.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SubMenuFindFirstArgs>(args?: SelectSubset<T, SubMenuFindFirstArgs<ExtArgs>>): Prisma__SubMenuClient<$Result.GetResult<Prisma.$SubMenuPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SubMenu that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubMenuFindFirstOrThrowArgs} args - Arguments to find a SubMenu
+     * @example
+     * // Get one SubMenu
+     * const subMenu = await prisma.subMenu.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SubMenuFindFirstOrThrowArgs>(args?: SelectSubset<T, SubMenuFindFirstOrThrowArgs<ExtArgs>>): Prisma__SubMenuClient<$Result.GetResult<Prisma.$SubMenuPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more SubMenus that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubMenuFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all SubMenus
+     * const subMenus = await prisma.subMenu.findMany()
+     * 
+     * // Get first 10 SubMenus
+     * const subMenus = await prisma.subMenu.findMany({ take: 10 })
+     * 
+     * // Only select the `subMenuId`
+     * const subMenuWithSubMenuIdOnly = await prisma.subMenu.findMany({ select: { subMenuId: true } })
+     * 
+     */
+    findMany<T extends SubMenuFindManyArgs>(args?: SelectSubset<T, SubMenuFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubMenuPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a SubMenu.
+     * @param {SubMenuCreateArgs} args - Arguments to create a SubMenu.
+     * @example
+     * // Create one SubMenu
+     * const SubMenu = await prisma.subMenu.create({
+     *   data: {
+     *     // ... data to create a SubMenu
+     *   }
+     * })
+     * 
+     */
+    create<T extends SubMenuCreateArgs>(args: SelectSubset<T, SubMenuCreateArgs<ExtArgs>>): Prisma__SubMenuClient<$Result.GetResult<Prisma.$SubMenuPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many SubMenus.
+     * @param {SubMenuCreateManyArgs} args - Arguments to create many SubMenus.
+     * @example
+     * // Create many SubMenus
+     * const subMenu = await prisma.subMenu.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SubMenuCreateManyArgs>(args?: SelectSubset<T, SubMenuCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a SubMenu.
+     * @param {SubMenuDeleteArgs} args - Arguments to delete one SubMenu.
+     * @example
+     * // Delete one SubMenu
+     * const SubMenu = await prisma.subMenu.delete({
+     *   where: {
+     *     // ... filter to delete one SubMenu
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SubMenuDeleteArgs>(args: SelectSubset<T, SubMenuDeleteArgs<ExtArgs>>): Prisma__SubMenuClient<$Result.GetResult<Prisma.$SubMenuPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one SubMenu.
+     * @param {SubMenuUpdateArgs} args - Arguments to update one SubMenu.
+     * @example
+     * // Update one SubMenu
+     * const subMenu = await prisma.subMenu.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SubMenuUpdateArgs>(args: SelectSubset<T, SubMenuUpdateArgs<ExtArgs>>): Prisma__SubMenuClient<$Result.GetResult<Prisma.$SubMenuPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more SubMenus.
+     * @param {SubMenuDeleteManyArgs} args - Arguments to filter SubMenus to delete.
+     * @example
+     * // Delete a few SubMenus
+     * const { count } = await prisma.subMenu.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SubMenuDeleteManyArgs>(args?: SelectSubset<T, SubMenuDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SubMenus.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubMenuUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many SubMenus
+     * const subMenu = await prisma.subMenu.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SubMenuUpdateManyArgs>(args: SelectSubset<T, SubMenuUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one SubMenu.
+     * @param {SubMenuUpsertArgs} args - Arguments to update or create a SubMenu.
+     * @example
+     * // Update or create a SubMenu
+     * const subMenu = await prisma.subMenu.upsert({
+     *   create: {
+     *     // ... data to create a SubMenu
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the SubMenu we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SubMenuUpsertArgs>(args: SelectSubset<T, SubMenuUpsertArgs<ExtArgs>>): Prisma__SubMenuClient<$Result.GetResult<Prisma.$SubMenuPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of SubMenus.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubMenuCountArgs} args - Arguments to filter SubMenus to count.
+     * @example
+     * // Count the number of SubMenus
+     * const count = await prisma.subMenu.count({
+     *   where: {
+     *     // ... the filter for the SubMenus we want to count
+     *   }
+     * })
+    **/
+    count<T extends SubMenuCountArgs>(
+      args?: Subset<T, SubMenuCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SubMenuCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a SubMenu.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubMenuAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SubMenuAggregateArgs>(args: Subset<T, SubMenuAggregateArgs>): Prisma.PrismaPromise<GetSubMenuAggregateType<T>>
+
+    /**
+     * Group by SubMenu.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubMenuGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SubMenuGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SubMenuGroupByArgs['orderBy'] }
+        : { orderBy?: SubMenuGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SubMenuGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSubMenuGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the SubMenu model
+   */
+  readonly fields: SubMenuFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for SubMenu.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SubMenuClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    menuList<T extends MenuListDefaultArgs<ExtArgs> = {}>(args?: Subset<T, MenuListDefaultArgs<ExtArgs>>): Prisma__MenuListClient<$Result.GetResult<Prisma.$MenuListPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the SubMenu model
+   */
+  interface SubMenuFieldRefs {
+    readonly subMenuId: FieldRef<"SubMenu", 'Int'>
+    readonly menuId: FieldRef<"SubMenu", 'Int'>
+    readonly subMenuName: FieldRef<"SubMenu", 'String'>
+    readonly subMenuIcon: FieldRef<"SubMenu", 'String'>
+    readonly subMenuRoute: FieldRef<"SubMenu", 'String'>
+    readonly sorting: FieldRef<"SubMenu", 'Int'>
+    readonly isActive: FieldRef<"SubMenu", 'Boolean'>
+    readonly createdAt: FieldRef<"SubMenu", 'DateTime'>
+    readonly updatedAt: FieldRef<"SubMenu", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * SubMenu findUnique
+   */
+  export type SubMenuFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubMenu
+     */
+    select?: SubMenuSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubMenu
+     */
+    omit?: SubMenuOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubMenuInclude<ExtArgs> | null
+    /**
+     * Filter, which SubMenu to fetch.
+     */
+    where: SubMenuWhereUniqueInput
+  }
+
+  /**
+   * SubMenu findUniqueOrThrow
+   */
+  export type SubMenuFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubMenu
+     */
+    select?: SubMenuSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubMenu
+     */
+    omit?: SubMenuOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubMenuInclude<ExtArgs> | null
+    /**
+     * Filter, which SubMenu to fetch.
+     */
+    where: SubMenuWhereUniqueInput
+  }
+
+  /**
+   * SubMenu findFirst
+   */
+  export type SubMenuFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubMenu
+     */
+    select?: SubMenuSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubMenu
+     */
+    omit?: SubMenuOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubMenuInclude<ExtArgs> | null
+    /**
+     * Filter, which SubMenu to fetch.
+     */
+    where?: SubMenuWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SubMenus to fetch.
+     */
+    orderBy?: SubMenuOrderByWithRelationInput | SubMenuOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SubMenus.
+     */
+    cursor?: SubMenuWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SubMenus from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SubMenus.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SubMenus.
+     */
+    distinct?: SubMenuScalarFieldEnum | SubMenuScalarFieldEnum[]
+  }
+
+  /**
+   * SubMenu findFirstOrThrow
+   */
+  export type SubMenuFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubMenu
+     */
+    select?: SubMenuSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubMenu
+     */
+    omit?: SubMenuOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubMenuInclude<ExtArgs> | null
+    /**
+     * Filter, which SubMenu to fetch.
+     */
+    where?: SubMenuWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SubMenus to fetch.
+     */
+    orderBy?: SubMenuOrderByWithRelationInput | SubMenuOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SubMenus.
+     */
+    cursor?: SubMenuWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SubMenus from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SubMenus.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SubMenus.
+     */
+    distinct?: SubMenuScalarFieldEnum | SubMenuScalarFieldEnum[]
+  }
+
+  /**
+   * SubMenu findMany
+   */
+  export type SubMenuFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubMenu
+     */
+    select?: SubMenuSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubMenu
+     */
+    omit?: SubMenuOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubMenuInclude<ExtArgs> | null
+    /**
+     * Filter, which SubMenus to fetch.
+     */
+    where?: SubMenuWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SubMenus to fetch.
+     */
+    orderBy?: SubMenuOrderByWithRelationInput | SubMenuOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing SubMenus.
+     */
+    cursor?: SubMenuWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SubMenus from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SubMenus.
+     */
+    skip?: number
+    distinct?: SubMenuScalarFieldEnum | SubMenuScalarFieldEnum[]
+  }
+
+  /**
+   * SubMenu create
+   */
+  export type SubMenuCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubMenu
+     */
+    select?: SubMenuSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubMenu
+     */
+    omit?: SubMenuOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubMenuInclude<ExtArgs> | null
+    /**
+     * The data needed to create a SubMenu.
+     */
+    data: XOR<SubMenuCreateInput, SubMenuUncheckedCreateInput>
+  }
+
+  /**
+   * SubMenu createMany
+   */
+  export type SubMenuCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many SubMenus.
+     */
+    data: SubMenuCreateManyInput | SubMenuCreateManyInput[]
+  }
+
+  /**
+   * SubMenu update
+   */
+  export type SubMenuUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubMenu
+     */
+    select?: SubMenuSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubMenu
+     */
+    omit?: SubMenuOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubMenuInclude<ExtArgs> | null
+    /**
+     * The data needed to update a SubMenu.
+     */
+    data: XOR<SubMenuUpdateInput, SubMenuUncheckedUpdateInput>
+    /**
+     * Choose, which SubMenu to update.
+     */
+    where: SubMenuWhereUniqueInput
+  }
+
+  /**
+   * SubMenu updateMany
+   */
+  export type SubMenuUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update SubMenus.
+     */
+    data: XOR<SubMenuUpdateManyMutationInput, SubMenuUncheckedUpdateManyInput>
+    /**
+     * Filter which SubMenus to update
+     */
+    where?: SubMenuWhereInput
+    /**
+     * Limit how many SubMenus to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * SubMenu upsert
+   */
+  export type SubMenuUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubMenu
+     */
+    select?: SubMenuSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubMenu
+     */
+    omit?: SubMenuOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubMenuInclude<ExtArgs> | null
+    /**
+     * The filter to search for the SubMenu to update in case it exists.
+     */
+    where: SubMenuWhereUniqueInput
+    /**
+     * In case the SubMenu found by the `where` argument doesn't exist, create a new SubMenu with this data.
+     */
+    create: XOR<SubMenuCreateInput, SubMenuUncheckedCreateInput>
+    /**
+     * In case the SubMenu was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SubMenuUpdateInput, SubMenuUncheckedUpdateInput>
+  }
+
+  /**
+   * SubMenu delete
+   */
+  export type SubMenuDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubMenu
+     */
+    select?: SubMenuSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubMenu
+     */
+    omit?: SubMenuOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubMenuInclude<ExtArgs> | null
+    /**
+     * Filter which SubMenu to delete.
+     */
+    where: SubMenuWhereUniqueInput
+  }
+
+  /**
+   * SubMenu deleteMany
+   */
+  export type SubMenuDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SubMenus to delete
+     */
+    where?: SubMenuWhereInput
+    /**
+     * Limit how many SubMenus to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * SubMenu without action
+   */
+  export type SubMenuDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubMenu
+     */
+    select?: SubMenuSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubMenu
+     */
+    omit?: SubMenuOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubMenuInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Department
+   */
+
+  export type AggregateDepartment = {
+    _count: DepartmentCountAggregateOutputType | null
+    _avg: DepartmentAvgAggregateOutputType | null
+    _sum: DepartmentSumAggregateOutputType | null
+    _min: DepartmentMinAggregateOutputType | null
+    _max: DepartmentMaxAggregateOutputType | null
+  }
+
+  export type DepartmentAvgAggregateOutputType = {
+    departmentId: number | null
+  }
+
+  export type DepartmentSumAggregateOutputType = {
+    departmentId: number | null
+  }
+
+  export type DepartmentMinAggregateOutputType = {
+    departmentId: number | null
+    departmentName: string | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type DepartmentMaxAggregateOutputType = {
+    departmentId: number | null
+    departmentName: string | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type DepartmentCountAggregateOutputType = {
+    departmentId: number
+    departmentName: number
+    isActive: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type DepartmentAvgAggregateInputType = {
+    departmentId?: true
+  }
+
+  export type DepartmentSumAggregateInputType = {
+    departmentId?: true
+  }
+
+  export type DepartmentMinAggregateInputType = {
+    departmentId?: true
+    departmentName?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type DepartmentMaxAggregateInputType = {
+    departmentId?: true
+    departmentName?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type DepartmentCountAggregateInputType = {
+    departmentId?: true
+    departmentName?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type DepartmentAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Department to aggregate.
+     */
+    where?: DepartmentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Departments to fetch.
+     */
+    orderBy?: DepartmentOrderByWithRelationInput | DepartmentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DepartmentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Departments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Departments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Departments
+    **/
+    _count?: true | DepartmentCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: DepartmentAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: DepartmentSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DepartmentMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DepartmentMaxAggregateInputType
+  }
+
+  export type GetDepartmentAggregateType<T extends DepartmentAggregateArgs> = {
+        [P in keyof T & keyof AggregateDepartment]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDepartment[P]>
+      : GetScalarType<T[P], AggregateDepartment[P]>
+  }
+
+
+
+
+  export type DepartmentGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DepartmentWhereInput
+    orderBy?: DepartmentOrderByWithAggregationInput | DepartmentOrderByWithAggregationInput[]
+    by: DepartmentScalarFieldEnum[] | DepartmentScalarFieldEnum
+    having?: DepartmentScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DepartmentCountAggregateInputType | true
+    _avg?: DepartmentAvgAggregateInputType
+    _sum?: DepartmentSumAggregateInputType
+    _min?: DepartmentMinAggregateInputType
+    _max?: DepartmentMaxAggregateInputType
+  }
+
+  export type DepartmentGroupByOutputType = {
+    departmentId: number
+    departmentName: string
+    isActive: boolean
+    createdAt: Date
+    updatedAt: Date
+    _count: DepartmentCountAggregateOutputType | null
+    _avg: DepartmentAvgAggregateOutputType | null
+    _sum: DepartmentSumAggregateOutputType | null
+    _min: DepartmentMinAggregateOutputType | null
+    _max: DepartmentMaxAggregateOutputType | null
+  }
+
+  type GetDepartmentGroupByPayload<T extends DepartmentGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DepartmentGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DepartmentGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DepartmentGroupByOutputType[P]>
+            : GetScalarType<T[P], DepartmentGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DepartmentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    departmentId?: boolean
+    departmentName?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    Employee?: boolean | Department$EmployeeArgs<ExtArgs>
+    _count?: boolean | DepartmentCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["department"]>
+
+
+
+  export type DepartmentSelectScalar = {
+    departmentId?: boolean
+    departmentName?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type DepartmentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"departmentId" | "departmentName" | "isActive" | "createdAt" | "updatedAt", ExtArgs["result"]["department"]>
+  export type DepartmentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Employee?: boolean | Department$EmployeeArgs<ExtArgs>
+    _count?: boolean | DepartmentCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $DepartmentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Department"
+    objects: {
+      Employee: Prisma.$EmployeePayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      departmentId: number
+      departmentName: string
+      isActive: boolean
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["department"]>
+    composites: {}
+  }
+
+  type DepartmentGetPayload<S extends boolean | null | undefined | DepartmentDefaultArgs> = $Result.GetResult<Prisma.$DepartmentPayload, S>
+
+  type DepartmentCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<DepartmentFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: DepartmentCountAggregateInputType | true
+    }
+
+  export interface DepartmentDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Department'], meta: { name: 'Department' } }
+    /**
+     * Find zero or one Department that matches the filter.
+     * @param {DepartmentFindUniqueArgs} args - Arguments to find a Department
+     * @example
+     * // Get one Department
+     * const department = await prisma.department.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends DepartmentFindUniqueArgs>(args: SelectSubset<T, DepartmentFindUniqueArgs<ExtArgs>>): Prisma__DepartmentClient<$Result.GetResult<Prisma.$DepartmentPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Department that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {DepartmentFindUniqueOrThrowArgs} args - Arguments to find a Department
+     * @example
+     * // Get one Department
+     * const department = await prisma.department.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends DepartmentFindUniqueOrThrowArgs>(args: SelectSubset<T, DepartmentFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DepartmentClient<$Result.GetResult<Prisma.$DepartmentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Department that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DepartmentFindFirstArgs} args - Arguments to find a Department
+     * @example
+     * // Get one Department
+     * const department = await prisma.department.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends DepartmentFindFirstArgs>(args?: SelectSubset<T, DepartmentFindFirstArgs<ExtArgs>>): Prisma__DepartmentClient<$Result.GetResult<Prisma.$DepartmentPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Department that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DepartmentFindFirstOrThrowArgs} args - Arguments to find a Department
+     * @example
+     * // Get one Department
+     * const department = await prisma.department.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends DepartmentFindFirstOrThrowArgs>(args?: SelectSubset<T, DepartmentFindFirstOrThrowArgs<ExtArgs>>): Prisma__DepartmentClient<$Result.GetResult<Prisma.$DepartmentPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Departments that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DepartmentFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Departments
+     * const departments = await prisma.department.findMany()
+     * 
+     * // Get first 10 Departments
+     * const departments = await prisma.department.findMany({ take: 10 })
+     * 
+     * // Only select the `departmentId`
+     * const departmentWithDepartmentIdOnly = await prisma.department.findMany({ select: { departmentId: true } })
+     * 
+     */
+    findMany<T extends DepartmentFindManyArgs>(args?: SelectSubset<T, DepartmentFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DepartmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Department.
+     * @param {DepartmentCreateArgs} args - Arguments to create a Department.
+     * @example
+     * // Create one Department
+     * const Department = await prisma.department.create({
+     *   data: {
+     *     // ... data to create a Department
+     *   }
+     * })
+     * 
+     */
+    create<T extends DepartmentCreateArgs>(args: SelectSubset<T, DepartmentCreateArgs<ExtArgs>>): Prisma__DepartmentClient<$Result.GetResult<Prisma.$DepartmentPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Departments.
+     * @param {DepartmentCreateManyArgs} args - Arguments to create many Departments.
+     * @example
+     * // Create many Departments
+     * const department = await prisma.department.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends DepartmentCreateManyArgs>(args?: SelectSubset<T, DepartmentCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Department.
+     * @param {DepartmentDeleteArgs} args - Arguments to delete one Department.
+     * @example
+     * // Delete one Department
+     * const Department = await prisma.department.delete({
+     *   where: {
+     *     // ... filter to delete one Department
+     *   }
+     * })
+     * 
+     */
+    delete<T extends DepartmentDeleteArgs>(args: SelectSubset<T, DepartmentDeleteArgs<ExtArgs>>): Prisma__DepartmentClient<$Result.GetResult<Prisma.$DepartmentPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Department.
+     * @param {DepartmentUpdateArgs} args - Arguments to update one Department.
+     * @example
+     * // Update one Department
+     * const department = await prisma.department.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends DepartmentUpdateArgs>(args: SelectSubset<T, DepartmentUpdateArgs<ExtArgs>>): Prisma__DepartmentClient<$Result.GetResult<Prisma.$DepartmentPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Departments.
+     * @param {DepartmentDeleteManyArgs} args - Arguments to filter Departments to delete.
+     * @example
+     * // Delete a few Departments
+     * const { count } = await prisma.department.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends DepartmentDeleteManyArgs>(args?: SelectSubset<T, DepartmentDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Departments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DepartmentUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Departments
+     * const department = await prisma.department.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends DepartmentUpdateManyArgs>(args: SelectSubset<T, DepartmentUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Department.
+     * @param {DepartmentUpsertArgs} args - Arguments to update or create a Department.
+     * @example
+     * // Update or create a Department
+     * const department = await prisma.department.upsert({
+     *   create: {
+     *     // ... data to create a Department
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Department we want to update
+     *   }
+     * })
+     */
+    upsert<T extends DepartmentUpsertArgs>(args: SelectSubset<T, DepartmentUpsertArgs<ExtArgs>>): Prisma__DepartmentClient<$Result.GetResult<Prisma.$DepartmentPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Departments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DepartmentCountArgs} args - Arguments to filter Departments to count.
+     * @example
+     * // Count the number of Departments
+     * const count = await prisma.department.count({
+     *   where: {
+     *     // ... the filter for the Departments we want to count
+     *   }
+     * })
+    **/
+    count<T extends DepartmentCountArgs>(
+      args?: Subset<T, DepartmentCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DepartmentCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Department.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DepartmentAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DepartmentAggregateArgs>(args: Subset<T, DepartmentAggregateArgs>): Prisma.PrismaPromise<GetDepartmentAggregateType<T>>
+
+    /**
+     * Group by Department.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DepartmentGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DepartmentGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DepartmentGroupByArgs['orderBy'] }
+        : { orderBy?: DepartmentGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DepartmentGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDepartmentGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Department model
+   */
+  readonly fields: DepartmentFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Department.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DepartmentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    Employee<T extends Department$EmployeeArgs<ExtArgs> = {}>(args?: Subset<T, Department$EmployeeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Department model
+   */
+  interface DepartmentFieldRefs {
+    readonly departmentId: FieldRef<"Department", 'Int'>
+    readonly departmentName: FieldRef<"Department", 'String'>
+    readonly isActive: FieldRef<"Department", 'Boolean'>
+    readonly createdAt: FieldRef<"Department", 'DateTime'>
+    readonly updatedAt: FieldRef<"Department", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Department findUnique
+   */
+  export type DepartmentFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Department
+     */
+    select?: DepartmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Department
+     */
+    omit?: DepartmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepartmentInclude<ExtArgs> | null
+    /**
+     * Filter, which Department to fetch.
+     */
+    where: DepartmentWhereUniqueInput
+  }
+
+  /**
+   * Department findUniqueOrThrow
+   */
+  export type DepartmentFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Department
+     */
+    select?: DepartmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Department
+     */
+    omit?: DepartmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepartmentInclude<ExtArgs> | null
+    /**
+     * Filter, which Department to fetch.
+     */
+    where: DepartmentWhereUniqueInput
+  }
+
+  /**
+   * Department findFirst
+   */
+  export type DepartmentFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Department
+     */
+    select?: DepartmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Department
+     */
+    omit?: DepartmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepartmentInclude<ExtArgs> | null
+    /**
+     * Filter, which Department to fetch.
+     */
+    where?: DepartmentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Departments to fetch.
+     */
+    orderBy?: DepartmentOrderByWithRelationInput | DepartmentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Departments.
+     */
+    cursor?: DepartmentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Departments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Departments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Departments.
+     */
+    distinct?: DepartmentScalarFieldEnum | DepartmentScalarFieldEnum[]
+  }
+
+  /**
+   * Department findFirstOrThrow
+   */
+  export type DepartmentFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Department
+     */
+    select?: DepartmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Department
+     */
+    omit?: DepartmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepartmentInclude<ExtArgs> | null
+    /**
+     * Filter, which Department to fetch.
+     */
+    where?: DepartmentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Departments to fetch.
+     */
+    orderBy?: DepartmentOrderByWithRelationInput | DepartmentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Departments.
+     */
+    cursor?: DepartmentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Departments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Departments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Departments.
+     */
+    distinct?: DepartmentScalarFieldEnum | DepartmentScalarFieldEnum[]
+  }
+
+  /**
+   * Department findMany
+   */
+  export type DepartmentFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Department
+     */
+    select?: DepartmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Department
+     */
+    omit?: DepartmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepartmentInclude<ExtArgs> | null
+    /**
+     * Filter, which Departments to fetch.
+     */
+    where?: DepartmentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Departments to fetch.
+     */
+    orderBy?: DepartmentOrderByWithRelationInput | DepartmentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Departments.
+     */
+    cursor?: DepartmentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Departments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Departments.
+     */
+    skip?: number
+    distinct?: DepartmentScalarFieldEnum | DepartmentScalarFieldEnum[]
+  }
+
+  /**
+   * Department create
+   */
+  export type DepartmentCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Department
+     */
+    select?: DepartmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Department
+     */
+    omit?: DepartmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepartmentInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Department.
+     */
+    data: XOR<DepartmentCreateInput, DepartmentUncheckedCreateInput>
+  }
+
+  /**
+   * Department createMany
+   */
+  export type DepartmentCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Departments.
+     */
+    data: DepartmentCreateManyInput | DepartmentCreateManyInput[]
+  }
+
+  /**
+   * Department update
+   */
+  export type DepartmentUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Department
+     */
+    select?: DepartmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Department
+     */
+    omit?: DepartmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepartmentInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Department.
+     */
+    data: XOR<DepartmentUpdateInput, DepartmentUncheckedUpdateInput>
+    /**
+     * Choose, which Department to update.
+     */
+    where: DepartmentWhereUniqueInput
+  }
+
+  /**
+   * Department updateMany
+   */
+  export type DepartmentUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Departments.
+     */
+    data: XOR<DepartmentUpdateManyMutationInput, DepartmentUncheckedUpdateManyInput>
+    /**
+     * Filter which Departments to update
+     */
+    where?: DepartmentWhereInput
+    /**
+     * Limit how many Departments to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Department upsert
+   */
+  export type DepartmentUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Department
+     */
+    select?: DepartmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Department
+     */
+    omit?: DepartmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepartmentInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Department to update in case it exists.
+     */
+    where: DepartmentWhereUniqueInput
+    /**
+     * In case the Department found by the `where` argument doesn't exist, create a new Department with this data.
+     */
+    create: XOR<DepartmentCreateInput, DepartmentUncheckedCreateInput>
+    /**
+     * In case the Department was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DepartmentUpdateInput, DepartmentUncheckedUpdateInput>
+  }
+
+  /**
+   * Department delete
+   */
+  export type DepartmentDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Department
+     */
+    select?: DepartmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Department
+     */
+    omit?: DepartmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepartmentInclude<ExtArgs> | null
+    /**
+     * Filter which Department to delete.
+     */
+    where: DepartmentWhereUniqueInput
+  }
+
+  /**
+   * Department deleteMany
+   */
+  export type DepartmentDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Departments to delete
+     */
+    where?: DepartmentWhereInput
+    /**
+     * Limit how many Departments to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Department.Employee
+   */
+  export type Department$EmployeeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+    where?: EmployeeWhereInput
+    orderBy?: EmployeeOrderByWithRelationInput | EmployeeOrderByWithRelationInput[]
+    cursor?: EmployeeWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: EmployeeScalarFieldEnum | EmployeeScalarFieldEnum[]
+  }
+
+  /**
+   * Department without action
+   */
+  export type DepartmentDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Department
+     */
+    select?: DepartmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Department
+     */
+    omit?: DepartmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepartmentInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Employee
+   */
+
+  export type AggregateEmployee = {
+    _count: EmployeeCountAggregateOutputType | null
+    _avg: EmployeeAvgAggregateOutputType | null
+    _sum: EmployeeSumAggregateOutputType | null
+    _min: EmployeeMinAggregateOutputType | null
+    _max: EmployeeMaxAggregateOutputType | null
+  }
+
+  export type EmployeeAvgAggregateOutputType = {
+    employeeId: number | null
+    departmentId: number | null
+    salary: number | null
+  }
+
+  export type EmployeeSumAggregateOutputType = {
+    employeeId: number | null
+    departmentId: number | null
+    salary: number | null
+  }
+
+  export type EmployeeMinAggregateOutputType = {
+    employeeId: number | null
+    namePrefix: string | null
+    firstName: string | null
+    lastName: string | null
+    email: string | null
+    phoneNumber: string | null
+    hireDate: Date | null
+    jobTitle: string | null
+    departmentId: number | null
+    birthDate: Date | null
+    idCardNumber: string | null
+    address: string | null
+    salary: number | null
+    remarks: string | null
+    isWorking: boolean | null
+    empPicture: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type EmployeeMaxAggregateOutputType = {
+    employeeId: number | null
+    namePrefix: string | null
+    firstName: string | null
+    lastName: string | null
+    email: string | null
+    phoneNumber: string | null
+    hireDate: Date | null
+    jobTitle: string | null
+    departmentId: number | null
+    birthDate: Date | null
+    idCardNumber: string | null
+    address: string | null
+    salary: number | null
+    remarks: string | null
+    isWorking: boolean | null
+    empPicture: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type EmployeeCountAggregateOutputType = {
+    employeeId: number
+    namePrefix: number
+    firstName: number
+    lastName: number
+    email: number
+    phoneNumber: number
+    hireDate: number
+    jobTitle: number
+    departmentId: number
+    birthDate: number
+    idCardNumber: number
+    address: number
+    salary: number
+    remarks: number
+    isWorking: number
+    empPicture: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type EmployeeAvgAggregateInputType = {
+    employeeId?: true
+    departmentId?: true
+    salary?: true
+  }
+
+  export type EmployeeSumAggregateInputType = {
+    employeeId?: true
+    departmentId?: true
+    salary?: true
+  }
+
+  export type EmployeeMinAggregateInputType = {
+    employeeId?: true
+    namePrefix?: true
+    firstName?: true
+    lastName?: true
+    email?: true
+    phoneNumber?: true
+    hireDate?: true
+    jobTitle?: true
+    departmentId?: true
+    birthDate?: true
+    idCardNumber?: true
+    address?: true
+    salary?: true
+    remarks?: true
+    isWorking?: true
+    empPicture?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type EmployeeMaxAggregateInputType = {
+    employeeId?: true
+    namePrefix?: true
+    firstName?: true
+    lastName?: true
+    email?: true
+    phoneNumber?: true
+    hireDate?: true
+    jobTitle?: true
+    departmentId?: true
+    birthDate?: true
+    idCardNumber?: true
+    address?: true
+    salary?: true
+    remarks?: true
+    isWorking?: true
+    empPicture?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type EmployeeCountAggregateInputType = {
+    employeeId?: true
+    namePrefix?: true
+    firstName?: true
+    lastName?: true
+    email?: true
+    phoneNumber?: true
+    hireDate?: true
+    jobTitle?: true
+    departmentId?: true
+    birthDate?: true
+    idCardNumber?: true
+    address?: true
+    salary?: true
+    remarks?: true
+    isWorking?: true
+    empPicture?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type EmployeeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Employee to aggregate.
+     */
+    where?: EmployeeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Employees to fetch.
+     */
+    orderBy?: EmployeeOrderByWithRelationInput | EmployeeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: EmployeeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Employees from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Employees.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Employees
+    **/
+    _count?: true | EmployeeCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: EmployeeAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: EmployeeSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: EmployeeMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: EmployeeMaxAggregateInputType
+  }
+
+  export type GetEmployeeAggregateType<T extends EmployeeAggregateArgs> = {
+        [P in keyof T & keyof AggregateEmployee]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateEmployee[P]>
+      : GetScalarType<T[P], AggregateEmployee[P]>
+  }
+
+
+
+
+  export type EmployeeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmployeeWhereInput
+    orderBy?: EmployeeOrderByWithAggregationInput | EmployeeOrderByWithAggregationInput[]
+    by: EmployeeScalarFieldEnum[] | EmployeeScalarFieldEnum
+    having?: EmployeeScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: EmployeeCountAggregateInputType | true
+    _avg?: EmployeeAvgAggregateInputType
+    _sum?: EmployeeSumAggregateInputType
+    _min?: EmployeeMinAggregateInputType
+    _max?: EmployeeMaxAggregateInputType
+  }
+
+  export type EmployeeGroupByOutputType = {
+    employeeId: number
+    namePrefix: string | null
+    firstName: string
+    lastName: string
+    email: string | null
+    phoneNumber: string | null
+    hireDate: Date | null
+    jobTitle: string | null
+    departmentId: number
+    birthDate: Date | null
+    idCardNumber: string | null
+    address: string | null
+    salary: number | null
+    remarks: string | null
+    isWorking: boolean
+    empPicture: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: EmployeeCountAggregateOutputType | null
+    _avg: EmployeeAvgAggregateOutputType | null
+    _sum: EmployeeSumAggregateOutputType | null
+    _min: EmployeeMinAggregateOutputType | null
+    _max: EmployeeMaxAggregateOutputType | null
+  }
+
+  type GetEmployeeGroupByPayload<T extends EmployeeGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<EmployeeGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof EmployeeGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], EmployeeGroupByOutputType[P]>
+            : GetScalarType<T[P], EmployeeGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type EmployeeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    employeeId?: boolean
+    namePrefix?: boolean
+    firstName?: boolean
+    lastName?: boolean
+    email?: boolean
+    phoneNumber?: boolean
+    hireDate?: boolean
+    jobTitle?: boolean
+    departmentId?: boolean
+    birthDate?: boolean
+    idCardNumber?: boolean
+    address?: boolean
+    salary?: boolean
+    remarks?: boolean
+    isWorking?: boolean
+    empPicture?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    department?: boolean | DepartmentDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["employee"]>
+
+
+
+  export type EmployeeSelectScalar = {
+    employeeId?: boolean
+    namePrefix?: boolean
+    firstName?: boolean
+    lastName?: boolean
+    email?: boolean
+    phoneNumber?: boolean
+    hireDate?: boolean
+    jobTitle?: boolean
+    departmentId?: boolean
+    birthDate?: boolean
+    idCardNumber?: boolean
+    address?: boolean
+    salary?: boolean
+    remarks?: boolean
+    isWorking?: boolean
+    empPicture?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type EmployeeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"employeeId" | "namePrefix" | "firstName" | "lastName" | "email" | "phoneNumber" | "hireDate" | "jobTitle" | "departmentId" | "birthDate" | "idCardNumber" | "address" | "salary" | "remarks" | "isWorking" | "empPicture" | "createdAt" | "updatedAt", ExtArgs["result"]["employee"]>
+  export type EmployeeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    department?: boolean | DepartmentDefaultArgs<ExtArgs>
+  }
+
+  export type $EmployeePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Employee"
+    objects: {
+      department: Prisma.$DepartmentPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      employeeId: number
+      namePrefix: string | null
+      firstName: string
+      lastName: string
+      email: string | null
+      phoneNumber: string | null
+      hireDate: Date | null
+      jobTitle: string | null
+      departmentId: number
+      birthDate: Date | null
+      idCardNumber: string | null
+      address: string | null
+      salary: number | null
+      remarks: string | null
+      isWorking: boolean
+      empPicture: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["employee"]>
+    composites: {}
+  }
+
+  type EmployeeGetPayload<S extends boolean | null | undefined | EmployeeDefaultArgs> = $Result.GetResult<Prisma.$EmployeePayload, S>
+
+  type EmployeeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<EmployeeFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: EmployeeCountAggregateInputType | true
+    }
+
+  export interface EmployeeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Employee'], meta: { name: 'Employee' } }
+    /**
+     * Find zero or one Employee that matches the filter.
+     * @param {EmployeeFindUniqueArgs} args - Arguments to find a Employee
+     * @example
+     * // Get one Employee
+     * const employee = await prisma.employee.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends EmployeeFindUniqueArgs>(args: SelectSubset<T, EmployeeFindUniqueArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Employee that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {EmployeeFindUniqueOrThrowArgs} args - Arguments to find a Employee
+     * @example
+     * // Get one Employee
+     * const employee = await prisma.employee.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends EmployeeFindUniqueOrThrowArgs>(args: SelectSubset<T, EmployeeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Employee that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeFindFirstArgs} args - Arguments to find a Employee
+     * @example
+     * // Get one Employee
+     * const employee = await prisma.employee.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends EmployeeFindFirstArgs>(args?: SelectSubset<T, EmployeeFindFirstArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Employee that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeFindFirstOrThrowArgs} args - Arguments to find a Employee
+     * @example
+     * // Get one Employee
+     * const employee = await prisma.employee.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends EmployeeFindFirstOrThrowArgs>(args?: SelectSubset<T, EmployeeFindFirstOrThrowArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Employees that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Employees
+     * const employees = await prisma.employee.findMany()
+     * 
+     * // Get first 10 Employees
+     * const employees = await prisma.employee.findMany({ take: 10 })
+     * 
+     * // Only select the `employeeId`
+     * const employeeWithEmployeeIdOnly = await prisma.employee.findMany({ select: { employeeId: true } })
+     * 
+     */
+    findMany<T extends EmployeeFindManyArgs>(args?: SelectSubset<T, EmployeeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Employee.
+     * @param {EmployeeCreateArgs} args - Arguments to create a Employee.
+     * @example
+     * // Create one Employee
+     * const Employee = await prisma.employee.create({
+     *   data: {
+     *     // ... data to create a Employee
+     *   }
+     * })
+     * 
+     */
+    create<T extends EmployeeCreateArgs>(args: SelectSubset<T, EmployeeCreateArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Employees.
+     * @param {EmployeeCreateManyArgs} args - Arguments to create many Employees.
+     * @example
+     * // Create many Employees
+     * const employee = await prisma.employee.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends EmployeeCreateManyArgs>(args?: SelectSubset<T, EmployeeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Employee.
+     * @param {EmployeeDeleteArgs} args - Arguments to delete one Employee.
+     * @example
+     * // Delete one Employee
+     * const Employee = await prisma.employee.delete({
+     *   where: {
+     *     // ... filter to delete one Employee
+     *   }
+     * })
+     * 
+     */
+    delete<T extends EmployeeDeleteArgs>(args: SelectSubset<T, EmployeeDeleteArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Employee.
+     * @param {EmployeeUpdateArgs} args - Arguments to update one Employee.
+     * @example
+     * // Update one Employee
+     * const employee = await prisma.employee.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends EmployeeUpdateArgs>(args: SelectSubset<T, EmployeeUpdateArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Employees.
+     * @param {EmployeeDeleteManyArgs} args - Arguments to filter Employees to delete.
+     * @example
+     * // Delete a few Employees
+     * const { count } = await prisma.employee.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends EmployeeDeleteManyArgs>(args?: SelectSubset<T, EmployeeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Employees.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Employees
+     * const employee = await prisma.employee.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends EmployeeUpdateManyArgs>(args: SelectSubset<T, EmployeeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Employee.
+     * @param {EmployeeUpsertArgs} args - Arguments to update or create a Employee.
+     * @example
+     * // Update or create a Employee
+     * const employee = await prisma.employee.upsert({
+     *   create: {
+     *     // ... data to create a Employee
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Employee we want to update
+     *   }
+     * })
+     */
+    upsert<T extends EmployeeUpsertArgs>(args: SelectSubset<T, EmployeeUpsertArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Employees.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeCountArgs} args - Arguments to filter Employees to count.
+     * @example
+     * // Count the number of Employees
+     * const count = await prisma.employee.count({
+     *   where: {
+     *     // ... the filter for the Employees we want to count
+     *   }
+     * })
+    **/
+    count<T extends EmployeeCountArgs>(
+      args?: Subset<T, EmployeeCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], EmployeeCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Employee.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends EmployeeAggregateArgs>(args: Subset<T, EmployeeAggregateArgs>): Prisma.PrismaPromise<GetEmployeeAggregateType<T>>
+
+    /**
+     * Group by Employee.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmployeeGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends EmployeeGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: EmployeeGroupByArgs['orderBy'] }
+        : { orderBy?: EmployeeGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, EmployeeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEmployeeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Employee model
+   */
+  readonly fields: EmployeeFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Employee.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__EmployeeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    department<T extends DepartmentDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DepartmentDefaultArgs<ExtArgs>>): Prisma__DepartmentClient<$Result.GetResult<Prisma.$DepartmentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Employee model
+   */
+  interface EmployeeFieldRefs {
+    readonly employeeId: FieldRef<"Employee", 'Int'>
+    readonly namePrefix: FieldRef<"Employee", 'String'>
+    readonly firstName: FieldRef<"Employee", 'String'>
+    readonly lastName: FieldRef<"Employee", 'String'>
+    readonly email: FieldRef<"Employee", 'String'>
+    readonly phoneNumber: FieldRef<"Employee", 'String'>
+    readonly hireDate: FieldRef<"Employee", 'DateTime'>
+    readonly jobTitle: FieldRef<"Employee", 'String'>
+    readonly departmentId: FieldRef<"Employee", 'Int'>
+    readonly birthDate: FieldRef<"Employee", 'DateTime'>
+    readonly idCardNumber: FieldRef<"Employee", 'String'>
+    readonly address: FieldRef<"Employee", 'String'>
+    readonly salary: FieldRef<"Employee", 'Float'>
+    readonly remarks: FieldRef<"Employee", 'String'>
+    readonly isWorking: FieldRef<"Employee", 'Boolean'>
+    readonly empPicture: FieldRef<"Employee", 'String'>
+    readonly createdAt: FieldRef<"Employee", 'DateTime'>
+    readonly updatedAt: FieldRef<"Employee", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Employee findUnique
+   */
+  export type EmployeeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+    /**
+     * Filter, which Employee to fetch.
+     */
+    where: EmployeeWhereUniqueInput
+  }
+
+  /**
+   * Employee findUniqueOrThrow
+   */
+  export type EmployeeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+    /**
+     * Filter, which Employee to fetch.
+     */
+    where: EmployeeWhereUniqueInput
+  }
+
+  /**
+   * Employee findFirst
+   */
+  export type EmployeeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+    /**
+     * Filter, which Employee to fetch.
+     */
+    where?: EmployeeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Employees to fetch.
+     */
+    orderBy?: EmployeeOrderByWithRelationInput | EmployeeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Employees.
+     */
+    cursor?: EmployeeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Employees from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Employees.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Employees.
+     */
+    distinct?: EmployeeScalarFieldEnum | EmployeeScalarFieldEnum[]
+  }
+
+  /**
+   * Employee findFirstOrThrow
+   */
+  export type EmployeeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+    /**
+     * Filter, which Employee to fetch.
+     */
+    where?: EmployeeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Employees to fetch.
+     */
+    orderBy?: EmployeeOrderByWithRelationInput | EmployeeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Employees.
+     */
+    cursor?: EmployeeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Employees from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Employees.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Employees.
+     */
+    distinct?: EmployeeScalarFieldEnum | EmployeeScalarFieldEnum[]
+  }
+
+  /**
+   * Employee findMany
+   */
+  export type EmployeeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+    /**
+     * Filter, which Employees to fetch.
+     */
+    where?: EmployeeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Employees to fetch.
+     */
+    orderBy?: EmployeeOrderByWithRelationInput | EmployeeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Employees.
+     */
+    cursor?: EmployeeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Employees from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Employees.
+     */
+    skip?: number
+    distinct?: EmployeeScalarFieldEnum | EmployeeScalarFieldEnum[]
+  }
+
+  /**
+   * Employee create
+   */
+  export type EmployeeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Employee.
+     */
+    data: XOR<EmployeeCreateInput, EmployeeUncheckedCreateInput>
+  }
+
+  /**
+   * Employee createMany
+   */
+  export type EmployeeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Employees.
+     */
+    data: EmployeeCreateManyInput | EmployeeCreateManyInput[]
+  }
+
+  /**
+   * Employee update
+   */
+  export type EmployeeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Employee.
+     */
+    data: XOR<EmployeeUpdateInput, EmployeeUncheckedUpdateInput>
+    /**
+     * Choose, which Employee to update.
+     */
+    where: EmployeeWhereUniqueInput
+  }
+
+  /**
+   * Employee updateMany
+   */
+  export type EmployeeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Employees.
+     */
+    data: XOR<EmployeeUpdateManyMutationInput, EmployeeUncheckedUpdateManyInput>
+    /**
+     * Filter which Employees to update
+     */
+    where?: EmployeeWhereInput
+    /**
+     * Limit how many Employees to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Employee upsert
+   */
+  export type EmployeeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Employee to update in case it exists.
+     */
+    where: EmployeeWhereUniqueInput
+    /**
+     * In case the Employee found by the `where` argument doesn't exist, create a new Employee with this data.
+     */
+    create: XOR<EmployeeCreateInput, EmployeeUncheckedCreateInput>
+    /**
+     * In case the Employee was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<EmployeeUpdateInput, EmployeeUncheckedUpdateInput>
+  }
+
+  /**
+   * Employee delete
+   */
+  export type EmployeeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+    /**
+     * Filter which Employee to delete.
+     */
+    where: EmployeeWhereUniqueInput
+  }
+
+  /**
+   * Employee deleteMany
+   */
+  export type EmployeeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Employees to delete
+     */
+    where?: EmployeeWhereInput
+    /**
+     * Limit how many Employees to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Employee without action
+   */
+  export type EmployeeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -1892,6 +6414,69 @@ export namespace Prisma {
   };
 
   export type AppUserScalarFieldEnum = (typeof AppUserScalarFieldEnum)[keyof typeof AppUserScalarFieldEnum]
+
+
+  export const MenuListScalarFieldEnum: {
+    menuId: 'menuId',
+    menuName: 'menuName',
+    menuIcon: 'menuIcon',
+    sorting: 'sorting',
+    isActive: 'isActive',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type MenuListScalarFieldEnum = (typeof MenuListScalarFieldEnum)[keyof typeof MenuListScalarFieldEnum]
+
+
+  export const SubMenuScalarFieldEnum: {
+    subMenuId: 'subMenuId',
+    menuId: 'menuId',
+    subMenuName: 'subMenuName',
+    subMenuIcon: 'subMenuIcon',
+    subMenuRoute: 'subMenuRoute',
+    sorting: 'sorting',
+    isActive: 'isActive',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type SubMenuScalarFieldEnum = (typeof SubMenuScalarFieldEnum)[keyof typeof SubMenuScalarFieldEnum]
+
+
+  export const DepartmentScalarFieldEnum: {
+    departmentId: 'departmentId',
+    departmentName: 'departmentName',
+    isActive: 'isActive',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type DepartmentScalarFieldEnum = (typeof DepartmentScalarFieldEnum)[keyof typeof DepartmentScalarFieldEnum]
+
+
+  export const EmployeeScalarFieldEnum: {
+    employeeId: 'employeeId',
+    namePrefix: 'namePrefix',
+    firstName: 'firstName',
+    lastName: 'lastName',
+    email: 'email',
+    phoneNumber: 'phoneNumber',
+    hireDate: 'hireDate',
+    jobTitle: 'jobTitle',
+    departmentId: 'departmentId',
+    birthDate: 'birthDate',
+    idCardNumber: 'idCardNumber',
+    address: 'address',
+    salary: 'salary',
+    remarks: 'remarks',
+    isWorking: 'isWorking',
+    empPicture: 'empPicture',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type EmployeeScalarFieldEnum = (typeof EmployeeScalarFieldEnum)[keyof typeof EmployeeScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -2047,6 +6632,329 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"AppUser"> | Date | string
   }
 
+  export type MenuListWhereInput = {
+    AND?: MenuListWhereInput | MenuListWhereInput[]
+    OR?: MenuListWhereInput[]
+    NOT?: MenuListWhereInput | MenuListWhereInput[]
+    menuId?: IntFilter<"MenuList"> | number
+    menuName?: StringFilter<"MenuList"> | string
+    menuIcon?: StringFilter<"MenuList"> | string
+    sorting?: IntFilter<"MenuList"> | number
+    isActive?: BoolFilter<"MenuList"> | boolean
+    createdAt?: DateTimeFilter<"MenuList"> | Date | string
+    updatedAt?: DateTimeFilter<"MenuList"> | Date | string
+    SubMenu?: SubMenuListRelationFilter
+  }
+
+  export type MenuListOrderByWithRelationInput = {
+    menuId?: SortOrder
+    menuName?: SortOrder
+    menuIcon?: SortOrder
+    sorting?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    SubMenu?: SubMenuOrderByRelationAggregateInput
+  }
+
+  export type MenuListWhereUniqueInput = Prisma.AtLeast<{
+    menuId?: number
+    AND?: MenuListWhereInput | MenuListWhereInput[]
+    OR?: MenuListWhereInput[]
+    NOT?: MenuListWhereInput | MenuListWhereInput[]
+    menuName?: StringFilter<"MenuList"> | string
+    menuIcon?: StringFilter<"MenuList"> | string
+    sorting?: IntFilter<"MenuList"> | number
+    isActive?: BoolFilter<"MenuList"> | boolean
+    createdAt?: DateTimeFilter<"MenuList"> | Date | string
+    updatedAt?: DateTimeFilter<"MenuList"> | Date | string
+    SubMenu?: SubMenuListRelationFilter
+  }, "menuId">
+
+  export type MenuListOrderByWithAggregationInput = {
+    menuId?: SortOrder
+    menuName?: SortOrder
+    menuIcon?: SortOrder
+    sorting?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: MenuListCountOrderByAggregateInput
+    _avg?: MenuListAvgOrderByAggregateInput
+    _max?: MenuListMaxOrderByAggregateInput
+    _min?: MenuListMinOrderByAggregateInput
+    _sum?: MenuListSumOrderByAggregateInput
+  }
+
+  export type MenuListScalarWhereWithAggregatesInput = {
+    AND?: MenuListScalarWhereWithAggregatesInput | MenuListScalarWhereWithAggregatesInput[]
+    OR?: MenuListScalarWhereWithAggregatesInput[]
+    NOT?: MenuListScalarWhereWithAggregatesInput | MenuListScalarWhereWithAggregatesInput[]
+    menuId?: IntWithAggregatesFilter<"MenuList"> | number
+    menuName?: StringWithAggregatesFilter<"MenuList"> | string
+    menuIcon?: StringWithAggregatesFilter<"MenuList"> | string
+    sorting?: IntWithAggregatesFilter<"MenuList"> | number
+    isActive?: BoolWithAggregatesFilter<"MenuList"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"MenuList"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"MenuList"> | Date | string
+  }
+
+  export type SubMenuWhereInput = {
+    AND?: SubMenuWhereInput | SubMenuWhereInput[]
+    OR?: SubMenuWhereInput[]
+    NOT?: SubMenuWhereInput | SubMenuWhereInput[]
+    subMenuId?: IntFilter<"SubMenu"> | number
+    menuId?: IntFilter<"SubMenu"> | number
+    subMenuName?: StringFilter<"SubMenu"> | string
+    subMenuIcon?: StringFilter<"SubMenu"> | string
+    subMenuRoute?: StringFilter<"SubMenu"> | string
+    sorting?: IntFilter<"SubMenu"> | number
+    isActive?: BoolFilter<"SubMenu"> | boolean
+    createdAt?: DateTimeFilter<"SubMenu"> | Date | string
+    updatedAt?: DateTimeFilter<"SubMenu"> | Date | string
+    menuList?: XOR<MenuListScalarRelationFilter, MenuListWhereInput>
+  }
+
+  export type SubMenuOrderByWithRelationInput = {
+    subMenuId?: SortOrder
+    menuId?: SortOrder
+    subMenuName?: SortOrder
+    subMenuIcon?: SortOrder
+    subMenuRoute?: SortOrder
+    sorting?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    menuList?: MenuListOrderByWithRelationInput
+  }
+
+  export type SubMenuWhereUniqueInput = Prisma.AtLeast<{
+    subMenuId?: number
+    AND?: SubMenuWhereInput | SubMenuWhereInput[]
+    OR?: SubMenuWhereInput[]
+    NOT?: SubMenuWhereInput | SubMenuWhereInput[]
+    menuId?: IntFilter<"SubMenu"> | number
+    subMenuName?: StringFilter<"SubMenu"> | string
+    subMenuIcon?: StringFilter<"SubMenu"> | string
+    subMenuRoute?: StringFilter<"SubMenu"> | string
+    sorting?: IntFilter<"SubMenu"> | number
+    isActive?: BoolFilter<"SubMenu"> | boolean
+    createdAt?: DateTimeFilter<"SubMenu"> | Date | string
+    updatedAt?: DateTimeFilter<"SubMenu"> | Date | string
+    menuList?: XOR<MenuListScalarRelationFilter, MenuListWhereInput>
+  }, "subMenuId">
+
+  export type SubMenuOrderByWithAggregationInput = {
+    subMenuId?: SortOrder
+    menuId?: SortOrder
+    subMenuName?: SortOrder
+    subMenuIcon?: SortOrder
+    subMenuRoute?: SortOrder
+    sorting?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: SubMenuCountOrderByAggregateInput
+    _avg?: SubMenuAvgOrderByAggregateInput
+    _max?: SubMenuMaxOrderByAggregateInput
+    _min?: SubMenuMinOrderByAggregateInput
+    _sum?: SubMenuSumOrderByAggregateInput
+  }
+
+  export type SubMenuScalarWhereWithAggregatesInput = {
+    AND?: SubMenuScalarWhereWithAggregatesInput | SubMenuScalarWhereWithAggregatesInput[]
+    OR?: SubMenuScalarWhereWithAggregatesInput[]
+    NOT?: SubMenuScalarWhereWithAggregatesInput | SubMenuScalarWhereWithAggregatesInput[]
+    subMenuId?: IntWithAggregatesFilter<"SubMenu"> | number
+    menuId?: IntWithAggregatesFilter<"SubMenu"> | number
+    subMenuName?: StringWithAggregatesFilter<"SubMenu"> | string
+    subMenuIcon?: StringWithAggregatesFilter<"SubMenu"> | string
+    subMenuRoute?: StringWithAggregatesFilter<"SubMenu"> | string
+    sorting?: IntWithAggregatesFilter<"SubMenu"> | number
+    isActive?: BoolWithAggregatesFilter<"SubMenu"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"SubMenu"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"SubMenu"> | Date | string
+  }
+
+  export type DepartmentWhereInput = {
+    AND?: DepartmentWhereInput | DepartmentWhereInput[]
+    OR?: DepartmentWhereInput[]
+    NOT?: DepartmentWhereInput | DepartmentWhereInput[]
+    departmentId?: IntFilter<"Department"> | number
+    departmentName?: StringFilter<"Department"> | string
+    isActive?: BoolFilter<"Department"> | boolean
+    createdAt?: DateTimeFilter<"Department"> | Date | string
+    updatedAt?: DateTimeFilter<"Department"> | Date | string
+    Employee?: EmployeeListRelationFilter
+  }
+
+  export type DepartmentOrderByWithRelationInput = {
+    departmentId?: SortOrder
+    departmentName?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    Employee?: EmployeeOrderByRelationAggregateInput
+  }
+
+  export type DepartmentWhereUniqueInput = Prisma.AtLeast<{
+    departmentId?: number
+    AND?: DepartmentWhereInput | DepartmentWhereInput[]
+    OR?: DepartmentWhereInput[]
+    NOT?: DepartmentWhereInput | DepartmentWhereInput[]
+    departmentName?: StringFilter<"Department"> | string
+    isActive?: BoolFilter<"Department"> | boolean
+    createdAt?: DateTimeFilter<"Department"> | Date | string
+    updatedAt?: DateTimeFilter<"Department"> | Date | string
+    Employee?: EmployeeListRelationFilter
+  }, "departmentId">
+
+  export type DepartmentOrderByWithAggregationInput = {
+    departmentId?: SortOrder
+    departmentName?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: DepartmentCountOrderByAggregateInput
+    _avg?: DepartmentAvgOrderByAggregateInput
+    _max?: DepartmentMaxOrderByAggregateInput
+    _min?: DepartmentMinOrderByAggregateInput
+    _sum?: DepartmentSumOrderByAggregateInput
+  }
+
+  export type DepartmentScalarWhereWithAggregatesInput = {
+    AND?: DepartmentScalarWhereWithAggregatesInput | DepartmentScalarWhereWithAggregatesInput[]
+    OR?: DepartmentScalarWhereWithAggregatesInput[]
+    NOT?: DepartmentScalarWhereWithAggregatesInput | DepartmentScalarWhereWithAggregatesInput[]
+    departmentId?: IntWithAggregatesFilter<"Department"> | number
+    departmentName?: StringWithAggregatesFilter<"Department"> | string
+    isActive?: BoolWithAggregatesFilter<"Department"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"Department"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Department"> | Date | string
+  }
+
+  export type EmployeeWhereInput = {
+    AND?: EmployeeWhereInput | EmployeeWhereInput[]
+    OR?: EmployeeWhereInput[]
+    NOT?: EmployeeWhereInput | EmployeeWhereInput[]
+    employeeId?: IntFilter<"Employee"> | number
+    namePrefix?: StringNullableFilter<"Employee"> | string | null
+    firstName?: StringFilter<"Employee"> | string
+    lastName?: StringFilter<"Employee"> | string
+    email?: StringNullableFilter<"Employee"> | string | null
+    phoneNumber?: StringNullableFilter<"Employee"> | string | null
+    hireDate?: DateTimeNullableFilter<"Employee"> | Date | string | null
+    jobTitle?: StringNullableFilter<"Employee"> | string | null
+    departmentId?: IntFilter<"Employee"> | number
+    birthDate?: DateTimeNullableFilter<"Employee"> | Date | string | null
+    idCardNumber?: StringNullableFilter<"Employee"> | string | null
+    address?: StringNullableFilter<"Employee"> | string | null
+    salary?: FloatNullableFilter<"Employee"> | number | null
+    remarks?: StringNullableFilter<"Employee"> | string | null
+    isWorking?: BoolFilter<"Employee"> | boolean
+    empPicture?: StringNullableFilter<"Employee"> | string | null
+    createdAt?: DateTimeFilter<"Employee"> | Date | string
+    updatedAt?: DateTimeFilter<"Employee"> | Date | string
+    department?: XOR<DepartmentScalarRelationFilter, DepartmentWhereInput>
+  }
+
+  export type EmployeeOrderByWithRelationInput = {
+    employeeId?: SortOrder
+    namePrefix?: SortOrderInput | SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    email?: SortOrderInput | SortOrder
+    phoneNumber?: SortOrderInput | SortOrder
+    hireDate?: SortOrderInput | SortOrder
+    jobTitle?: SortOrderInput | SortOrder
+    departmentId?: SortOrder
+    birthDate?: SortOrderInput | SortOrder
+    idCardNumber?: SortOrderInput | SortOrder
+    address?: SortOrderInput | SortOrder
+    salary?: SortOrderInput | SortOrder
+    remarks?: SortOrderInput | SortOrder
+    isWorking?: SortOrder
+    empPicture?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    department?: DepartmentOrderByWithRelationInput
+  }
+
+  export type EmployeeWhereUniqueInput = Prisma.AtLeast<{
+    employeeId?: number
+    email?: string
+    AND?: EmployeeWhereInput | EmployeeWhereInput[]
+    OR?: EmployeeWhereInput[]
+    NOT?: EmployeeWhereInput | EmployeeWhereInput[]
+    namePrefix?: StringNullableFilter<"Employee"> | string | null
+    firstName?: StringFilter<"Employee"> | string
+    lastName?: StringFilter<"Employee"> | string
+    phoneNumber?: StringNullableFilter<"Employee"> | string | null
+    hireDate?: DateTimeNullableFilter<"Employee"> | Date | string | null
+    jobTitle?: StringNullableFilter<"Employee"> | string | null
+    departmentId?: IntFilter<"Employee"> | number
+    birthDate?: DateTimeNullableFilter<"Employee"> | Date | string | null
+    idCardNumber?: StringNullableFilter<"Employee"> | string | null
+    address?: StringNullableFilter<"Employee"> | string | null
+    salary?: FloatNullableFilter<"Employee"> | number | null
+    remarks?: StringNullableFilter<"Employee"> | string | null
+    isWorking?: BoolFilter<"Employee"> | boolean
+    empPicture?: StringNullableFilter<"Employee"> | string | null
+    createdAt?: DateTimeFilter<"Employee"> | Date | string
+    updatedAt?: DateTimeFilter<"Employee"> | Date | string
+    department?: XOR<DepartmentScalarRelationFilter, DepartmentWhereInput>
+  }, "employeeId" | "email">
+
+  export type EmployeeOrderByWithAggregationInput = {
+    employeeId?: SortOrder
+    namePrefix?: SortOrderInput | SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    email?: SortOrderInput | SortOrder
+    phoneNumber?: SortOrderInput | SortOrder
+    hireDate?: SortOrderInput | SortOrder
+    jobTitle?: SortOrderInput | SortOrder
+    departmentId?: SortOrder
+    birthDate?: SortOrderInput | SortOrder
+    idCardNumber?: SortOrderInput | SortOrder
+    address?: SortOrderInput | SortOrder
+    salary?: SortOrderInput | SortOrder
+    remarks?: SortOrderInput | SortOrder
+    isWorking?: SortOrder
+    empPicture?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: EmployeeCountOrderByAggregateInput
+    _avg?: EmployeeAvgOrderByAggregateInput
+    _max?: EmployeeMaxOrderByAggregateInput
+    _min?: EmployeeMinOrderByAggregateInput
+    _sum?: EmployeeSumOrderByAggregateInput
+  }
+
+  export type EmployeeScalarWhereWithAggregatesInput = {
+    AND?: EmployeeScalarWhereWithAggregatesInput | EmployeeScalarWhereWithAggregatesInput[]
+    OR?: EmployeeScalarWhereWithAggregatesInput[]
+    NOT?: EmployeeScalarWhereWithAggregatesInput | EmployeeScalarWhereWithAggregatesInput[]
+    employeeId?: IntWithAggregatesFilter<"Employee"> | number
+    namePrefix?: StringNullableWithAggregatesFilter<"Employee"> | string | null
+    firstName?: StringWithAggregatesFilter<"Employee"> | string
+    lastName?: StringWithAggregatesFilter<"Employee"> | string
+    email?: StringNullableWithAggregatesFilter<"Employee"> | string | null
+    phoneNumber?: StringNullableWithAggregatesFilter<"Employee"> | string | null
+    hireDate?: DateTimeNullableWithAggregatesFilter<"Employee"> | Date | string | null
+    jobTitle?: StringNullableWithAggregatesFilter<"Employee"> | string | null
+    departmentId?: IntWithAggregatesFilter<"Employee"> | number
+    birthDate?: DateTimeNullableWithAggregatesFilter<"Employee"> | Date | string | null
+    idCardNumber?: StringNullableWithAggregatesFilter<"Employee"> | string | null
+    address?: StringNullableWithAggregatesFilter<"Employee"> | string | null
+    salary?: FloatNullableWithAggregatesFilter<"Employee"> | number | null
+    remarks?: StringNullableWithAggregatesFilter<"Employee"> | string | null
+    isWorking?: BoolWithAggregatesFilter<"Employee"> | boolean
+    empPicture?: StringNullableWithAggregatesFilter<"Employee"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Employee"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Employee"> | Date | string
+  }
+
   export type AppUserCreateInput = {
     userName: string
     email: string
@@ -2151,6 +7059,353 @@ export namespace Prisma {
     isLimitDevices?: BoolFieldUpdateOperationsInput | boolean
     limitDeviceCount?: NullableIntFieldUpdateOperationsInput | number | null
     profilePic?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MenuListCreateInput = {
+    menuName: string
+    menuIcon: string
+    sorting?: number
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    SubMenu?: SubMenuCreateNestedManyWithoutMenuListInput
+  }
+
+  export type MenuListUncheckedCreateInput = {
+    menuId?: number
+    menuName: string
+    menuIcon: string
+    sorting?: number
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    SubMenu?: SubMenuUncheckedCreateNestedManyWithoutMenuListInput
+  }
+
+  export type MenuListUpdateInput = {
+    menuName?: StringFieldUpdateOperationsInput | string
+    menuIcon?: StringFieldUpdateOperationsInput | string
+    sorting?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    SubMenu?: SubMenuUpdateManyWithoutMenuListNestedInput
+  }
+
+  export type MenuListUncheckedUpdateInput = {
+    menuId?: IntFieldUpdateOperationsInput | number
+    menuName?: StringFieldUpdateOperationsInput | string
+    menuIcon?: StringFieldUpdateOperationsInput | string
+    sorting?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    SubMenu?: SubMenuUncheckedUpdateManyWithoutMenuListNestedInput
+  }
+
+  export type MenuListCreateManyInput = {
+    menuName: string
+    menuIcon: string
+    sorting?: number
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type MenuListUpdateManyMutationInput = {
+    menuName?: StringFieldUpdateOperationsInput | string
+    menuIcon?: StringFieldUpdateOperationsInput | string
+    sorting?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MenuListUncheckedUpdateManyInput = {
+    menuId?: IntFieldUpdateOperationsInput | number
+    menuName?: StringFieldUpdateOperationsInput | string
+    menuIcon?: StringFieldUpdateOperationsInput | string
+    sorting?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SubMenuCreateInput = {
+    subMenuName: string
+    subMenuIcon: string
+    subMenuRoute: string
+    sorting?: number
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    menuList: MenuListCreateNestedOneWithoutSubMenuInput
+  }
+
+  export type SubMenuUncheckedCreateInput = {
+    subMenuId?: number
+    menuId: number
+    subMenuName: string
+    subMenuIcon: string
+    subMenuRoute: string
+    sorting?: number
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SubMenuUpdateInput = {
+    subMenuName?: StringFieldUpdateOperationsInput | string
+    subMenuIcon?: StringFieldUpdateOperationsInput | string
+    subMenuRoute?: StringFieldUpdateOperationsInput | string
+    sorting?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    menuList?: MenuListUpdateOneRequiredWithoutSubMenuNestedInput
+  }
+
+  export type SubMenuUncheckedUpdateInput = {
+    subMenuId?: IntFieldUpdateOperationsInput | number
+    menuId?: IntFieldUpdateOperationsInput | number
+    subMenuName?: StringFieldUpdateOperationsInput | string
+    subMenuIcon?: StringFieldUpdateOperationsInput | string
+    subMenuRoute?: StringFieldUpdateOperationsInput | string
+    sorting?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SubMenuCreateManyInput = {
+    menuId: number
+    subMenuName: string
+    subMenuIcon: string
+    subMenuRoute: string
+    sorting?: number
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SubMenuUpdateManyMutationInput = {
+    subMenuName?: StringFieldUpdateOperationsInput | string
+    subMenuIcon?: StringFieldUpdateOperationsInput | string
+    subMenuRoute?: StringFieldUpdateOperationsInput | string
+    sorting?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SubMenuUncheckedUpdateManyInput = {
+    subMenuId?: IntFieldUpdateOperationsInput | number
+    menuId?: IntFieldUpdateOperationsInput | number
+    subMenuName?: StringFieldUpdateOperationsInput | string
+    subMenuIcon?: StringFieldUpdateOperationsInput | string
+    subMenuRoute?: StringFieldUpdateOperationsInput | string
+    sorting?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DepartmentCreateInput = {
+    departmentName: string
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    Employee?: EmployeeCreateNestedManyWithoutDepartmentInput
+  }
+
+  export type DepartmentUncheckedCreateInput = {
+    departmentId?: number
+    departmentName: string
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    Employee?: EmployeeUncheckedCreateNestedManyWithoutDepartmentInput
+  }
+
+  export type DepartmentUpdateInput = {
+    departmentName?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Employee?: EmployeeUpdateManyWithoutDepartmentNestedInput
+  }
+
+  export type DepartmentUncheckedUpdateInput = {
+    departmentId?: IntFieldUpdateOperationsInput | number
+    departmentName?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Employee?: EmployeeUncheckedUpdateManyWithoutDepartmentNestedInput
+  }
+
+  export type DepartmentCreateManyInput = {
+    departmentName: string
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DepartmentUpdateManyMutationInput = {
+    departmentName?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DepartmentUncheckedUpdateManyInput = {
+    departmentId?: IntFieldUpdateOperationsInput | number
+    departmentName?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeCreateInput = {
+    namePrefix?: string | null
+    firstName: string
+    lastName: string
+    email?: string | null
+    phoneNumber?: string | null
+    hireDate?: Date | string | null
+    jobTitle?: string | null
+    birthDate?: Date | string | null
+    idCardNumber?: string | null
+    address?: string | null
+    salary?: number | null
+    remarks?: string | null
+    isWorking?: boolean
+    empPicture?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    department: DepartmentCreateNestedOneWithoutEmployeeInput
+  }
+
+  export type EmployeeUncheckedCreateInput = {
+    employeeId?: number
+    namePrefix?: string | null
+    firstName: string
+    lastName: string
+    email?: string | null
+    phoneNumber?: string | null
+    hireDate?: Date | string | null
+    jobTitle?: string | null
+    departmentId: number
+    birthDate?: Date | string | null
+    idCardNumber?: string | null
+    address?: string | null
+    salary?: number | null
+    remarks?: string | null
+    isWorking?: boolean
+    empPicture?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmployeeUpdateInput = {
+    namePrefix?: NullableStringFieldUpdateOperationsInput | string | null
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    hireDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    jobTitle?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    idCardNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    salary?: NullableFloatFieldUpdateOperationsInput | number | null
+    remarks?: NullableStringFieldUpdateOperationsInput | string | null
+    isWorking?: BoolFieldUpdateOperationsInput | boolean
+    empPicture?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    department?: DepartmentUpdateOneRequiredWithoutEmployeeNestedInput
+  }
+
+  export type EmployeeUncheckedUpdateInput = {
+    employeeId?: IntFieldUpdateOperationsInput | number
+    namePrefix?: NullableStringFieldUpdateOperationsInput | string | null
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    hireDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    jobTitle?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: IntFieldUpdateOperationsInput | number
+    birthDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    idCardNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    salary?: NullableFloatFieldUpdateOperationsInput | number | null
+    remarks?: NullableStringFieldUpdateOperationsInput | string | null
+    isWorking?: BoolFieldUpdateOperationsInput | boolean
+    empPicture?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeCreateManyInput = {
+    namePrefix?: string | null
+    firstName: string
+    lastName: string
+    email?: string | null
+    phoneNumber?: string | null
+    hireDate?: Date | string | null
+    jobTitle?: string | null
+    departmentId: number
+    birthDate?: Date | string | null
+    idCardNumber?: string | null
+    address?: string | null
+    salary?: number | null
+    remarks?: string | null
+    isWorking?: boolean
+    empPicture?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmployeeUpdateManyMutationInput = {
+    namePrefix?: NullableStringFieldUpdateOperationsInput | string | null
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    hireDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    jobTitle?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    idCardNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    salary?: NullableFloatFieldUpdateOperationsInput | number | null
+    remarks?: NullableStringFieldUpdateOperationsInput | string | null
+    isWorking?: BoolFieldUpdateOperationsInput | boolean
+    empPicture?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeUncheckedUpdateManyInput = {
+    employeeId?: IntFieldUpdateOperationsInput | number
+    namePrefix?: NullableStringFieldUpdateOperationsInput | string | null
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    hireDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    jobTitle?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: IntFieldUpdateOperationsInput | number
+    birthDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    idCardNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    salary?: NullableFloatFieldUpdateOperationsInput | number | null
+    remarks?: NullableStringFieldUpdateOperationsInput | string | null
+    isWorking?: BoolFieldUpdateOperationsInput | boolean
+    empPicture?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -2372,6 +7627,283 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type SubMenuListRelationFilter = {
+    every?: SubMenuWhereInput
+    some?: SubMenuWhereInput
+    none?: SubMenuWhereInput
+  }
+
+  export type SubMenuOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type MenuListCountOrderByAggregateInput = {
+    menuId?: SortOrder
+    menuName?: SortOrder
+    menuIcon?: SortOrder
+    sorting?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type MenuListAvgOrderByAggregateInput = {
+    menuId?: SortOrder
+    sorting?: SortOrder
+  }
+
+  export type MenuListMaxOrderByAggregateInput = {
+    menuId?: SortOrder
+    menuName?: SortOrder
+    menuIcon?: SortOrder
+    sorting?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type MenuListMinOrderByAggregateInput = {
+    menuId?: SortOrder
+    menuName?: SortOrder
+    menuIcon?: SortOrder
+    sorting?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type MenuListSumOrderByAggregateInput = {
+    menuId?: SortOrder
+    sorting?: SortOrder
+  }
+
+  export type MenuListScalarRelationFilter = {
+    is?: MenuListWhereInput
+    isNot?: MenuListWhereInput
+  }
+
+  export type SubMenuCountOrderByAggregateInput = {
+    subMenuId?: SortOrder
+    menuId?: SortOrder
+    subMenuName?: SortOrder
+    subMenuIcon?: SortOrder
+    subMenuRoute?: SortOrder
+    sorting?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SubMenuAvgOrderByAggregateInput = {
+    subMenuId?: SortOrder
+    menuId?: SortOrder
+    sorting?: SortOrder
+  }
+
+  export type SubMenuMaxOrderByAggregateInput = {
+    subMenuId?: SortOrder
+    menuId?: SortOrder
+    subMenuName?: SortOrder
+    subMenuIcon?: SortOrder
+    subMenuRoute?: SortOrder
+    sorting?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SubMenuMinOrderByAggregateInput = {
+    subMenuId?: SortOrder
+    menuId?: SortOrder
+    subMenuName?: SortOrder
+    subMenuIcon?: SortOrder
+    subMenuRoute?: SortOrder
+    sorting?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SubMenuSumOrderByAggregateInput = {
+    subMenuId?: SortOrder
+    menuId?: SortOrder
+    sorting?: SortOrder
+  }
+
+  export type EmployeeListRelationFilter = {
+    every?: EmployeeWhereInput
+    some?: EmployeeWhereInput
+    none?: EmployeeWhereInput
+  }
+
+  export type EmployeeOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type DepartmentCountOrderByAggregateInput = {
+    departmentId?: SortOrder
+    departmentName?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DepartmentAvgOrderByAggregateInput = {
+    departmentId?: SortOrder
+  }
+
+  export type DepartmentMaxOrderByAggregateInput = {
+    departmentId?: SortOrder
+    departmentName?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DepartmentMinOrderByAggregateInput = {
+    departmentId?: SortOrder
+    departmentName?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DepartmentSumOrderByAggregateInput = {
+    departmentId?: SortOrder
+  }
+
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type FloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type DepartmentScalarRelationFilter = {
+    is?: DepartmentWhereInput
+    isNot?: DepartmentWhereInput
+  }
+
+  export type EmployeeCountOrderByAggregateInput = {
+    employeeId?: SortOrder
+    namePrefix?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    email?: SortOrder
+    phoneNumber?: SortOrder
+    hireDate?: SortOrder
+    jobTitle?: SortOrder
+    departmentId?: SortOrder
+    birthDate?: SortOrder
+    idCardNumber?: SortOrder
+    address?: SortOrder
+    salary?: SortOrder
+    remarks?: SortOrder
+    isWorking?: SortOrder
+    empPicture?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EmployeeAvgOrderByAggregateInput = {
+    employeeId?: SortOrder
+    departmentId?: SortOrder
+    salary?: SortOrder
+  }
+
+  export type EmployeeMaxOrderByAggregateInput = {
+    employeeId?: SortOrder
+    namePrefix?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    email?: SortOrder
+    phoneNumber?: SortOrder
+    hireDate?: SortOrder
+    jobTitle?: SortOrder
+    departmentId?: SortOrder
+    birthDate?: SortOrder
+    idCardNumber?: SortOrder
+    address?: SortOrder
+    salary?: SortOrder
+    remarks?: SortOrder
+    isWorking?: SortOrder
+    empPicture?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EmployeeMinOrderByAggregateInput = {
+    employeeId?: SortOrder
+    namePrefix?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    email?: SortOrder
+    phoneNumber?: SortOrder
+    hireDate?: SortOrder
+    jobTitle?: SortOrder
+    departmentId?: SortOrder
+    birthDate?: SortOrder
+    idCardNumber?: SortOrder
+    address?: SortOrder
+    salary?: SortOrder
+    remarks?: SortOrder
+    isWorking?: SortOrder
+    empPicture?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EmployeeSumOrderByAggregateInput = {
+    employeeId?: SortOrder
+    departmentId?: SortOrder
+    salary?: SortOrder
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -2402,6 +7934,130 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type SubMenuCreateNestedManyWithoutMenuListInput = {
+    create?: XOR<SubMenuCreateWithoutMenuListInput, SubMenuUncheckedCreateWithoutMenuListInput> | SubMenuCreateWithoutMenuListInput[] | SubMenuUncheckedCreateWithoutMenuListInput[]
+    connectOrCreate?: SubMenuCreateOrConnectWithoutMenuListInput | SubMenuCreateOrConnectWithoutMenuListInput[]
+    createMany?: SubMenuCreateManyMenuListInputEnvelope
+    connect?: SubMenuWhereUniqueInput | SubMenuWhereUniqueInput[]
+  }
+
+  export type SubMenuUncheckedCreateNestedManyWithoutMenuListInput = {
+    create?: XOR<SubMenuCreateWithoutMenuListInput, SubMenuUncheckedCreateWithoutMenuListInput> | SubMenuCreateWithoutMenuListInput[] | SubMenuUncheckedCreateWithoutMenuListInput[]
+    connectOrCreate?: SubMenuCreateOrConnectWithoutMenuListInput | SubMenuCreateOrConnectWithoutMenuListInput[]
+    createMany?: SubMenuCreateManyMenuListInputEnvelope
+    connect?: SubMenuWhereUniqueInput | SubMenuWhereUniqueInput[]
+  }
+
+  export type SubMenuUpdateManyWithoutMenuListNestedInput = {
+    create?: XOR<SubMenuCreateWithoutMenuListInput, SubMenuUncheckedCreateWithoutMenuListInput> | SubMenuCreateWithoutMenuListInput[] | SubMenuUncheckedCreateWithoutMenuListInput[]
+    connectOrCreate?: SubMenuCreateOrConnectWithoutMenuListInput | SubMenuCreateOrConnectWithoutMenuListInput[]
+    upsert?: SubMenuUpsertWithWhereUniqueWithoutMenuListInput | SubMenuUpsertWithWhereUniqueWithoutMenuListInput[]
+    createMany?: SubMenuCreateManyMenuListInputEnvelope
+    set?: SubMenuWhereUniqueInput | SubMenuWhereUniqueInput[]
+    disconnect?: SubMenuWhereUniqueInput | SubMenuWhereUniqueInput[]
+    delete?: SubMenuWhereUniqueInput | SubMenuWhereUniqueInput[]
+    connect?: SubMenuWhereUniqueInput | SubMenuWhereUniqueInput[]
+    update?: SubMenuUpdateWithWhereUniqueWithoutMenuListInput | SubMenuUpdateWithWhereUniqueWithoutMenuListInput[]
+    updateMany?: SubMenuUpdateManyWithWhereWithoutMenuListInput | SubMenuUpdateManyWithWhereWithoutMenuListInput[]
+    deleteMany?: SubMenuScalarWhereInput | SubMenuScalarWhereInput[]
+  }
+
+  export type SubMenuUncheckedUpdateManyWithoutMenuListNestedInput = {
+    create?: XOR<SubMenuCreateWithoutMenuListInput, SubMenuUncheckedCreateWithoutMenuListInput> | SubMenuCreateWithoutMenuListInput[] | SubMenuUncheckedCreateWithoutMenuListInput[]
+    connectOrCreate?: SubMenuCreateOrConnectWithoutMenuListInput | SubMenuCreateOrConnectWithoutMenuListInput[]
+    upsert?: SubMenuUpsertWithWhereUniqueWithoutMenuListInput | SubMenuUpsertWithWhereUniqueWithoutMenuListInput[]
+    createMany?: SubMenuCreateManyMenuListInputEnvelope
+    set?: SubMenuWhereUniqueInput | SubMenuWhereUniqueInput[]
+    disconnect?: SubMenuWhereUniqueInput | SubMenuWhereUniqueInput[]
+    delete?: SubMenuWhereUniqueInput | SubMenuWhereUniqueInput[]
+    connect?: SubMenuWhereUniqueInput | SubMenuWhereUniqueInput[]
+    update?: SubMenuUpdateWithWhereUniqueWithoutMenuListInput | SubMenuUpdateWithWhereUniqueWithoutMenuListInput[]
+    updateMany?: SubMenuUpdateManyWithWhereWithoutMenuListInput | SubMenuUpdateManyWithWhereWithoutMenuListInput[]
+    deleteMany?: SubMenuScalarWhereInput | SubMenuScalarWhereInput[]
+  }
+
+  export type MenuListCreateNestedOneWithoutSubMenuInput = {
+    create?: XOR<MenuListCreateWithoutSubMenuInput, MenuListUncheckedCreateWithoutSubMenuInput>
+    connectOrCreate?: MenuListCreateOrConnectWithoutSubMenuInput
+    connect?: MenuListWhereUniqueInput
+  }
+
+  export type MenuListUpdateOneRequiredWithoutSubMenuNestedInput = {
+    create?: XOR<MenuListCreateWithoutSubMenuInput, MenuListUncheckedCreateWithoutSubMenuInput>
+    connectOrCreate?: MenuListCreateOrConnectWithoutSubMenuInput
+    upsert?: MenuListUpsertWithoutSubMenuInput
+    connect?: MenuListWhereUniqueInput
+    update?: XOR<XOR<MenuListUpdateToOneWithWhereWithoutSubMenuInput, MenuListUpdateWithoutSubMenuInput>, MenuListUncheckedUpdateWithoutSubMenuInput>
+  }
+
+  export type EmployeeCreateNestedManyWithoutDepartmentInput = {
+    create?: XOR<EmployeeCreateWithoutDepartmentInput, EmployeeUncheckedCreateWithoutDepartmentInput> | EmployeeCreateWithoutDepartmentInput[] | EmployeeUncheckedCreateWithoutDepartmentInput[]
+    connectOrCreate?: EmployeeCreateOrConnectWithoutDepartmentInput | EmployeeCreateOrConnectWithoutDepartmentInput[]
+    createMany?: EmployeeCreateManyDepartmentInputEnvelope
+    connect?: EmployeeWhereUniqueInput | EmployeeWhereUniqueInput[]
+  }
+
+  export type EmployeeUncheckedCreateNestedManyWithoutDepartmentInput = {
+    create?: XOR<EmployeeCreateWithoutDepartmentInput, EmployeeUncheckedCreateWithoutDepartmentInput> | EmployeeCreateWithoutDepartmentInput[] | EmployeeUncheckedCreateWithoutDepartmentInput[]
+    connectOrCreate?: EmployeeCreateOrConnectWithoutDepartmentInput | EmployeeCreateOrConnectWithoutDepartmentInput[]
+    createMany?: EmployeeCreateManyDepartmentInputEnvelope
+    connect?: EmployeeWhereUniqueInput | EmployeeWhereUniqueInput[]
+  }
+
+  export type EmployeeUpdateManyWithoutDepartmentNestedInput = {
+    create?: XOR<EmployeeCreateWithoutDepartmentInput, EmployeeUncheckedCreateWithoutDepartmentInput> | EmployeeCreateWithoutDepartmentInput[] | EmployeeUncheckedCreateWithoutDepartmentInput[]
+    connectOrCreate?: EmployeeCreateOrConnectWithoutDepartmentInput | EmployeeCreateOrConnectWithoutDepartmentInput[]
+    upsert?: EmployeeUpsertWithWhereUniqueWithoutDepartmentInput | EmployeeUpsertWithWhereUniqueWithoutDepartmentInput[]
+    createMany?: EmployeeCreateManyDepartmentInputEnvelope
+    set?: EmployeeWhereUniqueInput | EmployeeWhereUniqueInput[]
+    disconnect?: EmployeeWhereUniqueInput | EmployeeWhereUniqueInput[]
+    delete?: EmployeeWhereUniqueInput | EmployeeWhereUniqueInput[]
+    connect?: EmployeeWhereUniqueInput | EmployeeWhereUniqueInput[]
+    update?: EmployeeUpdateWithWhereUniqueWithoutDepartmentInput | EmployeeUpdateWithWhereUniqueWithoutDepartmentInput[]
+    updateMany?: EmployeeUpdateManyWithWhereWithoutDepartmentInput | EmployeeUpdateManyWithWhereWithoutDepartmentInput[]
+    deleteMany?: EmployeeScalarWhereInput | EmployeeScalarWhereInput[]
+  }
+
+  export type EmployeeUncheckedUpdateManyWithoutDepartmentNestedInput = {
+    create?: XOR<EmployeeCreateWithoutDepartmentInput, EmployeeUncheckedCreateWithoutDepartmentInput> | EmployeeCreateWithoutDepartmentInput[] | EmployeeUncheckedCreateWithoutDepartmentInput[]
+    connectOrCreate?: EmployeeCreateOrConnectWithoutDepartmentInput | EmployeeCreateOrConnectWithoutDepartmentInput[]
+    upsert?: EmployeeUpsertWithWhereUniqueWithoutDepartmentInput | EmployeeUpsertWithWhereUniqueWithoutDepartmentInput[]
+    createMany?: EmployeeCreateManyDepartmentInputEnvelope
+    set?: EmployeeWhereUniqueInput | EmployeeWhereUniqueInput[]
+    disconnect?: EmployeeWhereUniqueInput | EmployeeWhereUniqueInput[]
+    delete?: EmployeeWhereUniqueInput | EmployeeWhereUniqueInput[]
+    connect?: EmployeeWhereUniqueInput | EmployeeWhereUniqueInput[]
+    update?: EmployeeUpdateWithWhereUniqueWithoutDepartmentInput | EmployeeUpdateWithWhereUniqueWithoutDepartmentInput[]
+    updateMany?: EmployeeUpdateManyWithWhereWithoutDepartmentInput | EmployeeUpdateManyWithWhereWithoutDepartmentInput[]
+    deleteMany?: EmployeeScalarWhereInput | EmployeeScalarWhereInput[]
+  }
+
+  export type DepartmentCreateNestedOneWithoutEmployeeInput = {
+    create?: XOR<DepartmentCreateWithoutEmployeeInput, DepartmentUncheckedCreateWithoutEmployeeInput>
+    connectOrCreate?: DepartmentCreateOrConnectWithoutEmployeeInput
+    connect?: DepartmentWhereUniqueInput
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
+  export type NullableFloatFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type DepartmentUpdateOneRequiredWithoutEmployeeNestedInput = {
+    create?: XOR<DepartmentCreateWithoutEmployeeInput, DepartmentUncheckedCreateWithoutEmployeeInput>
+    connectOrCreate?: DepartmentCreateOrConnectWithoutEmployeeInput
+    upsert?: DepartmentUpsertWithoutEmployeeInput
+    connect?: DepartmentWhereUniqueInput
+    update?: XOR<XOR<DepartmentUpdateToOneWithWhereWithoutEmployeeInput, DepartmentUpdateWithoutEmployeeInput>, DepartmentUncheckedUpdateWithoutEmployeeInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -2578,6 +8234,416 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
+  export type SubMenuCreateWithoutMenuListInput = {
+    subMenuName: string
+    subMenuIcon: string
+    subMenuRoute: string
+    sorting?: number
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SubMenuUncheckedCreateWithoutMenuListInput = {
+    subMenuId?: number
+    subMenuName: string
+    subMenuIcon: string
+    subMenuRoute: string
+    sorting?: number
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SubMenuCreateOrConnectWithoutMenuListInput = {
+    where: SubMenuWhereUniqueInput
+    create: XOR<SubMenuCreateWithoutMenuListInput, SubMenuUncheckedCreateWithoutMenuListInput>
+  }
+
+  export type SubMenuCreateManyMenuListInputEnvelope = {
+    data: SubMenuCreateManyMenuListInput | SubMenuCreateManyMenuListInput[]
+  }
+
+  export type SubMenuUpsertWithWhereUniqueWithoutMenuListInput = {
+    where: SubMenuWhereUniqueInput
+    update: XOR<SubMenuUpdateWithoutMenuListInput, SubMenuUncheckedUpdateWithoutMenuListInput>
+    create: XOR<SubMenuCreateWithoutMenuListInput, SubMenuUncheckedCreateWithoutMenuListInput>
+  }
+
+  export type SubMenuUpdateWithWhereUniqueWithoutMenuListInput = {
+    where: SubMenuWhereUniqueInput
+    data: XOR<SubMenuUpdateWithoutMenuListInput, SubMenuUncheckedUpdateWithoutMenuListInput>
+  }
+
+  export type SubMenuUpdateManyWithWhereWithoutMenuListInput = {
+    where: SubMenuScalarWhereInput
+    data: XOR<SubMenuUpdateManyMutationInput, SubMenuUncheckedUpdateManyWithoutMenuListInput>
+  }
+
+  export type SubMenuScalarWhereInput = {
+    AND?: SubMenuScalarWhereInput | SubMenuScalarWhereInput[]
+    OR?: SubMenuScalarWhereInput[]
+    NOT?: SubMenuScalarWhereInput | SubMenuScalarWhereInput[]
+    subMenuId?: IntFilter<"SubMenu"> | number
+    menuId?: IntFilter<"SubMenu"> | number
+    subMenuName?: StringFilter<"SubMenu"> | string
+    subMenuIcon?: StringFilter<"SubMenu"> | string
+    subMenuRoute?: StringFilter<"SubMenu"> | string
+    sorting?: IntFilter<"SubMenu"> | number
+    isActive?: BoolFilter<"SubMenu"> | boolean
+    createdAt?: DateTimeFilter<"SubMenu"> | Date | string
+    updatedAt?: DateTimeFilter<"SubMenu"> | Date | string
+  }
+
+  export type MenuListCreateWithoutSubMenuInput = {
+    menuName: string
+    menuIcon: string
+    sorting?: number
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type MenuListUncheckedCreateWithoutSubMenuInput = {
+    menuId?: number
+    menuName: string
+    menuIcon: string
+    sorting?: number
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type MenuListCreateOrConnectWithoutSubMenuInput = {
+    where: MenuListWhereUniqueInput
+    create: XOR<MenuListCreateWithoutSubMenuInput, MenuListUncheckedCreateWithoutSubMenuInput>
+  }
+
+  export type MenuListUpsertWithoutSubMenuInput = {
+    update: XOR<MenuListUpdateWithoutSubMenuInput, MenuListUncheckedUpdateWithoutSubMenuInput>
+    create: XOR<MenuListCreateWithoutSubMenuInput, MenuListUncheckedCreateWithoutSubMenuInput>
+    where?: MenuListWhereInput
+  }
+
+  export type MenuListUpdateToOneWithWhereWithoutSubMenuInput = {
+    where?: MenuListWhereInput
+    data: XOR<MenuListUpdateWithoutSubMenuInput, MenuListUncheckedUpdateWithoutSubMenuInput>
+  }
+
+  export type MenuListUpdateWithoutSubMenuInput = {
+    menuName?: StringFieldUpdateOperationsInput | string
+    menuIcon?: StringFieldUpdateOperationsInput | string
+    sorting?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MenuListUncheckedUpdateWithoutSubMenuInput = {
+    menuId?: IntFieldUpdateOperationsInput | number
+    menuName?: StringFieldUpdateOperationsInput | string
+    menuIcon?: StringFieldUpdateOperationsInput | string
+    sorting?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeCreateWithoutDepartmentInput = {
+    namePrefix?: string | null
+    firstName: string
+    lastName: string
+    email?: string | null
+    phoneNumber?: string | null
+    hireDate?: Date | string | null
+    jobTitle?: string | null
+    birthDate?: Date | string | null
+    idCardNumber?: string | null
+    address?: string | null
+    salary?: number | null
+    remarks?: string | null
+    isWorking?: boolean
+    empPicture?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmployeeUncheckedCreateWithoutDepartmentInput = {
+    employeeId?: number
+    namePrefix?: string | null
+    firstName: string
+    lastName: string
+    email?: string | null
+    phoneNumber?: string | null
+    hireDate?: Date | string | null
+    jobTitle?: string | null
+    birthDate?: Date | string | null
+    idCardNumber?: string | null
+    address?: string | null
+    salary?: number | null
+    remarks?: string | null
+    isWorking?: boolean
+    empPicture?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmployeeCreateOrConnectWithoutDepartmentInput = {
+    where: EmployeeWhereUniqueInput
+    create: XOR<EmployeeCreateWithoutDepartmentInput, EmployeeUncheckedCreateWithoutDepartmentInput>
+  }
+
+  export type EmployeeCreateManyDepartmentInputEnvelope = {
+    data: EmployeeCreateManyDepartmentInput | EmployeeCreateManyDepartmentInput[]
+  }
+
+  export type EmployeeUpsertWithWhereUniqueWithoutDepartmentInput = {
+    where: EmployeeWhereUniqueInput
+    update: XOR<EmployeeUpdateWithoutDepartmentInput, EmployeeUncheckedUpdateWithoutDepartmentInput>
+    create: XOR<EmployeeCreateWithoutDepartmentInput, EmployeeUncheckedCreateWithoutDepartmentInput>
+  }
+
+  export type EmployeeUpdateWithWhereUniqueWithoutDepartmentInput = {
+    where: EmployeeWhereUniqueInput
+    data: XOR<EmployeeUpdateWithoutDepartmentInput, EmployeeUncheckedUpdateWithoutDepartmentInput>
+  }
+
+  export type EmployeeUpdateManyWithWhereWithoutDepartmentInput = {
+    where: EmployeeScalarWhereInput
+    data: XOR<EmployeeUpdateManyMutationInput, EmployeeUncheckedUpdateManyWithoutDepartmentInput>
+  }
+
+  export type EmployeeScalarWhereInput = {
+    AND?: EmployeeScalarWhereInput | EmployeeScalarWhereInput[]
+    OR?: EmployeeScalarWhereInput[]
+    NOT?: EmployeeScalarWhereInput | EmployeeScalarWhereInput[]
+    employeeId?: IntFilter<"Employee"> | number
+    namePrefix?: StringNullableFilter<"Employee"> | string | null
+    firstName?: StringFilter<"Employee"> | string
+    lastName?: StringFilter<"Employee"> | string
+    email?: StringNullableFilter<"Employee"> | string | null
+    phoneNumber?: StringNullableFilter<"Employee"> | string | null
+    hireDate?: DateTimeNullableFilter<"Employee"> | Date | string | null
+    jobTitle?: StringNullableFilter<"Employee"> | string | null
+    departmentId?: IntFilter<"Employee"> | number
+    birthDate?: DateTimeNullableFilter<"Employee"> | Date | string | null
+    idCardNumber?: StringNullableFilter<"Employee"> | string | null
+    address?: StringNullableFilter<"Employee"> | string | null
+    salary?: FloatNullableFilter<"Employee"> | number | null
+    remarks?: StringNullableFilter<"Employee"> | string | null
+    isWorking?: BoolFilter<"Employee"> | boolean
+    empPicture?: StringNullableFilter<"Employee"> | string | null
+    createdAt?: DateTimeFilter<"Employee"> | Date | string
+    updatedAt?: DateTimeFilter<"Employee"> | Date | string
+  }
+
+  export type DepartmentCreateWithoutEmployeeInput = {
+    departmentName: string
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DepartmentUncheckedCreateWithoutEmployeeInput = {
+    departmentId?: number
+    departmentName: string
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DepartmentCreateOrConnectWithoutEmployeeInput = {
+    where: DepartmentWhereUniqueInput
+    create: XOR<DepartmentCreateWithoutEmployeeInput, DepartmentUncheckedCreateWithoutEmployeeInput>
+  }
+
+  export type DepartmentUpsertWithoutEmployeeInput = {
+    update: XOR<DepartmentUpdateWithoutEmployeeInput, DepartmentUncheckedUpdateWithoutEmployeeInput>
+    create: XOR<DepartmentCreateWithoutEmployeeInput, DepartmentUncheckedCreateWithoutEmployeeInput>
+    where?: DepartmentWhereInput
+  }
+
+  export type DepartmentUpdateToOneWithWhereWithoutEmployeeInput = {
+    where?: DepartmentWhereInput
+    data: XOR<DepartmentUpdateWithoutEmployeeInput, DepartmentUncheckedUpdateWithoutEmployeeInput>
+  }
+
+  export type DepartmentUpdateWithoutEmployeeInput = {
+    departmentName?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DepartmentUncheckedUpdateWithoutEmployeeInput = {
+    departmentId?: IntFieldUpdateOperationsInput | number
+    departmentName?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SubMenuCreateManyMenuListInput = {
+    subMenuName: string
+    subMenuIcon: string
+    subMenuRoute: string
+    sorting?: number
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SubMenuUpdateWithoutMenuListInput = {
+    subMenuName?: StringFieldUpdateOperationsInput | string
+    subMenuIcon?: StringFieldUpdateOperationsInput | string
+    subMenuRoute?: StringFieldUpdateOperationsInput | string
+    sorting?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SubMenuUncheckedUpdateWithoutMenuListInput = {
+    subMenuId?: IntFieldUpdateOperationsInput | number
+    subMenuName?: StringFieldUpdateOperationsInput | string
+    subMenuIcon?: StringFieldUpdateOperationsInput | string
+    subMenuRoute?: StringFieldUpdateOperationsInput | string
+    sorting?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SubMenuUncheckedUpdateManyWithoutMenuListInput = {
+    subMenuId?: IntFieldUpdateOperationsInput | number
+    subMenuName?: StringFieldUpdateOperationsInput | string
+    subMenuIcon?: StringFieldUpdateOperationsInput | string
+    subMenuRoute?: StringFieldUpdateOperationsInput | string
+    sorting?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeCreateManyDepartmentInput = {
+    namePrefix?: string | null
+    firstName: string
+    lastName: string
+    email?: string | null
+    phoneNumber?: string | null
+    hireDate?: Date | string | null
+    jobTitle?: string | null
+    birthDate?: Date | string | null
+    idCardNumber?: string | null
+    address?: string | null
+    salary?: number | null
+    remarks?: string | null
+    isWorking?: boolean
+    empPicture?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmployeeUpdateWithoutDepartmentInput = {
+    namePrefix?: NullableStringFieldUpdateOperationsInput | string | null
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    hireDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    jobTitle?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    idCardNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    salary?: NullableFloatFieldUpdateOperationsInput | number | null
+    remarks?: NullableStringFieldUpdateOperationsInput | string | null
+    isWorking?: BoolFieldUpdateOperationsInput | boolean
+    empPicture?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeUncheckedUpdateWithoutDepartmentInput = {
+    employeeId?: IntFieldUpdateOperationsInput | number
+    namePrefix?: NullableStringFieldUpdateOperationsInput | string | null
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    hireDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    jobTitle?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    idCardNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    salary?: NullableFloatFieldUpdateOperationsInput | number | null
+    remarks?: NullableStringFieldUpdateOperationsInput | string | null
+    isWorking?: BoolFieldUpdateOperationsInput | boolean
+    empPicture?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmployeeUncheckedUpdateManyWithoutDepartmentInput = {
+    employeeId?: IntFieldUpdateOperationsInput | number
+    namePrefix?: NullableStringFieldUpdateOperationsInput | string | null
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    hireDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    jobTitle?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    idCardNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    salary?: NullableFloatFieldUpdateOperationsInput | number | null
+    remarks?: NullableStringFieldUpdateOperationsInput | string | null
+    isWorking?: BoolFieldUpdateOperationsInput | boolean
+    empPicture?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

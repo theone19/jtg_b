@@ -109,6 +109,57 @@ exports.Prisma.AppUserScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.MenuListScalarFieldEnum = {
+  menuId: 'menuId',
+  menuName: 'menuName',
+  menuIcon: 'menuIcon',
+  sorting: 'sorting',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.SubMenuScalarFieldEnum = {
+  subMenuId: 'subMenuId',
+  menuId: 'menuId',
+  subMenuName: 'subMenuName',
+  subMenuIcon: 'subMenuIcon',
+  subMenuRoute: 'subMenuRoute',
+  sorting: 'sorting',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.DepartmentScalarFieldEnum = {
+  departmentId: 'departmentId',
+  departmentName: 'departmentName',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.EmployeeScalarFieldEnum = {
+  employeeId: 'employeeId',
+  namePrefix: 'namePrefix',
+  firstName: 'firstName',
+  lastName: 'lastName',
+  email: 'email',
+  phoneNumber: 'phoneNumber',
+  hireDate: 'hireDate',
+  jobTitle: 'jobTitle',
+  departmentId: 'departmentId',
+  birthDate: 'birthDate',
+  idCardNumber: 'idCardNumber',
+  address: 'address',
+  salary: 'salary',
+  remarks: 'remarks',
+  isWorking: 'isWorking',
+  empPicture: 'empPicture',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -121,7 +172,11 @@ exports.Prisma.NullsOrder = {
 
 
 exports.Prisma.ModelName = {
-  AppUser: 'AppUser'
+  AppUser: 'AppUser',
+  MenuList: 'MenuList',
+  SubMenu: 'SubMenu',
+  Department: 'Department',
+  Employee: 'Employee'
 };
 /**
  * Create the Client
@@ -162,7 +217,6 @@ const config = {
     "db"
   ],
   "activeProvider": "sqlserver",
-  "postinstall": true,
   "inlineDatasources": {
     "db": {
       "url": {
@@ -171,13 +225,13 @@ const config = {
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"sqlserver\"\n  url      = env(\"DATABASE_URL\")\n}\n\ngenerator prismabox {\n  provider                    = \"prismabox\"\n  typeboxImportDependencyName = \"elysia\"\n  typeboxImportVariableName   = \"t\"\n  inputModel                  = true\n  output                      = \"../generated/prismabox\"\n}\n\nmodel AppUser {\n  userId           Int      @id @default(autoincrement())\n  userName         String   @unique @db.VarChar(50)\n  email            String   @unique @db.VarChar(100)\n  password         String   @db.VarChar(255)\n  fullName         String   @db.VarChar(100)\n  mobileNo         String?  @db.VarChar(15)\n  isActive         Boolean  @default(false)\n  isAdmin          Boolean  @default(false)\n  isLimitDevices   Boolean  @default(false)\n  limitDeviceCount Int?     @default(0)\n  profilePic       String?  @db.VarChar(255)\n  createdAt        DateTime @default(now())\n  updatedAt        DateTime @updatedAt\n}\n",
-  "inlineSchemaHash": "893db9a9737ab79736f819bc62544d3eaab10e90ee2bb449db2a6782b6115350",
+  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"sqlserver\"\n  url      = env(\"DATABASE_URL\")\n}\n\ngenerator prismabox {\n  provider                    = \"prismabox\"\n  typeboxImportDependencyName = \"elysia\"\n  typeboxImportVariableName   = \"t\"\n  inputModel                  = true\n  output                      = \"../generated/prismabox\"\n}\n\nmodel AppUser {\n  userId           Int      @id @default(autoincrement())\n  userName         String   @unique @db.VarChar(50)\n  email            String   @unique @db.VarChar(100)\n  password         String   @db.VarChar(255)\n  fullName         String   @db.VarChar(100)\n  mobileNo         String?  @db.VarChar(15)\n  isActive         Boolean  @default(false)\n  isAdmin          Boolean  @default(false)\n  isLimitDevices   Boolean  @default(false)\n  limitDeviceCount Int?     @default(0)\n  profilePic       String?  @db.VarChar(255)\n  createdAt        DateTime @default(now())\n  updatedAt        DateTime @updatedAt\n}\n\nmodel MenuList {\n  menuId    Int      @id @default(autoincrement())\n  menuName  String   @db.VarChar(100)\n  menuIcon  String   @db.VarChar(100)\n  sorting   Int      @default(0)\n  isActive  Boolean  @default(true)\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n\n  SubMenu SubMenu[]\n}\n\nmodel SubMenu {\n  subMenuId    Int      @id @default(autoincrement())\n  menuId       Int\n  subMenuName  String   @db.VarChar(100)\n  subMenuIcon  String   @db.VarChar(100)\n  subMenuRoute String   @db.VarChar(200)\n  sorting      Int      @default(0)\n  isActive     Boolean  @default(true)\n  createdAt    DateTime @default(now())\n  updatedAt    DateTime @updatedAt\n\n  menuList MenuList @relation(fields: [menuId], references: [menuId])\n}\n\nmodel Department {\n  departmentId   Int      @id @default(autoincrement())\n  departmentName String   @db.VarChar(100)\n  isActive       Boolean  @default(true)\n  createdAt      DateTime @default(now())\n  updatedAt      DateTime @updatedAt\n\n  Employee Employee[]\n}\n\nmodel Employee {\n  employeeId   Int       @id @default(autoincrement())\n  namePrefix   String?   @db.VarChar(20)\n  firstName    String    @db.VarChar(60)\n  lastName     String    @db.VarChar(60)\n  email        String?   @unique @db.VarChar(100)\n  phoneNumber  String?   @db.VarChar(15)\n  hireDate     DateTime?\n  jobTitle     String?   @db.VarChar(100)\n  departmentId Int\n  birthDate    DateTime?\n  idCardNumber String?   @db.VarChar(50)\n  address      String?   @db.VarChar(255)\n  salary       Float?\n  remarks      String?   @db.VarChar(300)\n  isWorking    Boolean   @default(true)\n  empPicture   String?   @db.VarChar(255)\n  createdAt    DateTime  @default(now())\n  updatedAt    DateTime  @updatedAt\n\n  department Department @relation(fields: [departmentId], references: [departmentId])\n}\n",
+  "inlineSchemaHash": "e8c053d7a5f56a645c800c2cb584daecbdc6717a928ddbc7670747dbcf600fdb",
   "copyEngine": true
 }
 config.dirname = '/'
 
-config.runtimeDataModel = JSON.parse("{\"models\":{\"AppUser\":{\"fields\":[{\"name\":\"userId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"userName\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"password\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"fullName\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"mobileNo\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"isActive\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"isAdmin\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"isLimitDevices\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"limitDeviceCount\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"profilePic\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
+config.runtimeDataModel = JSON.parse("{\"models\":{\"AppUser\":{\"fields\":[{\"name\":\"userId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"userName\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"password\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"fullName\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"mobileNo\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"isActive\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"isAdmin\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"isLimitDevices\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"limitDeviceCount\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"profilePic\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"MenuList\":{\"fields\":[{\"name\":\"menuId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"menuName\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"menuIcon\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"sorting\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"isActive\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"SubMenu\",\"kind\":\"object\",\"type\":\"SubMenu\",\"relationName\":\"MenuListToSubMenu\"}],\"dbName\":null},\"SubMenu\":{\"fields\":[{\"name\":\"subMenuId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"menuId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"subMenuName\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"subMenuIcon\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"subMenuRoute\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"sorting\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"isActive\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"menuList\",\"kind\":\"object\",\"type\":\"MenuList\",\"relationName\":\"MenuListToSubMenu\"}],\"dbName\":null},\"Department\":{\"fields\":[{\"name\":\"departmentId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"departmentName\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"isActive\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"Employee\",\"kind\":\"object\",\"type\":\"Employee\",\"relationName\":\"DepartmentToEmployee\"}],\"dbName\":null},\"Employee\":{\"fields\":[{\"name\":\"employeeId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"namePrefix\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"firstName\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"lastName\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"phoneNumber\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"hireDate\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"jobTitle\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"departmentId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"birthDate\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"idCardNumber\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"address\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"salary\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"remarks\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"isWorking\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"empPicture\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"department\",\"kind\":\"object\",\"type\":\"Department\",\"relationName\":\"DepartmentToEmployee\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
 defineDmmfProperty(exports.Prisma, config.runtimeDataModel)
 config.engineWasm = {
   getRuntime: async () => require('./query_engine_bg.js'),

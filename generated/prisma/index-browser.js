@@ -137,6 +137,57 @@ exports.Prisma.AppUserScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.MenuListScalarFieldEnum = {
+  menuId: 'menuId',
+  menuName: 'menuName',
+  menuIcon: 'menuIcon',
+  sorting: 'sorting',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.SubMenuScalarFieldEnum = {
+  subMenuId: 'subMenuId',
+  menuId: 'menuId',
+  subMenuName: 'subMenuName',
+  subMenuIcon: 'subMenuIcon',
+  subMenuRoute: 'subMenuRoute',
+  sorting: 'sorting',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.DepartmentScalarFieldEnum = {
+  departmentId: 'departmentId',
+  departmentName: 'departmentName',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.EmployeeScalarFieldEnum = {
+  employeeId: 'employeeId',
+  namePrefix: 'namePrefix',
+  firstName: 'firstName',
+  lastName: 'lastName',
+  email: 'email',
+  phoneNumber: 'phoneNumber',
+  hireDate: 'hireDate',
+  jobTitle: 'jobTitle',
+  departmentId: 'departmentId',
+  birthDate: 'birthDate',
+  idCardNumber: 'idCardNumber',
+  address: 'address',
+  salary: 'salary',
+  remarks: 'remarks',
+  isWorking: 'isWorking',
+  empPicture: 'empPicture',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -149,7 +200,11 @@ exports.Prisma.NullsOrder = {
 
 
 exports.Prisma.ModelName = {
-  AppUser: 'AppUser'
+  AppUser: 'AppUser',
+  MenuList: 'MenuList',
+  SubMenu: 'SubMenu',
+  Department: 'Department',
+  Employee: 'Employee'
 };
 
 /**
