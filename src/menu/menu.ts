@@ -36,5 +36,13 @@ const menuRoutes = new Elysia({ prefix: "/menu"})
         });
         return deletedMenu;
     })
-
+    .get('/all-menus', async () => {
+        const menusWithItems = await prisma.menuList.findMany({
+            include: {
+                SubMenu: true,
+            },
+        });
+        return menusWithItems;
+    })
+;
 export default menuRoutes;
