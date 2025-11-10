@@ -28,7 +28,8 @@ const employeeRoutes = new Elysia({ prefix: "/employee" })
   })
   .get("/all", async () => {
     const employees = await prisma.$queryRaw<[]>`
-        SELECT e.*, d.departmentName, e.firstName+ ' ' + e.lastName AS fullName FROM Employee AS e
+        SELECT e.*, d.departmentName, e.firstName+ ' ' + e.lastName AS fullName        
+        FROM Employee AS e
         LEFT JOIN Department AS d ON e.departmentId = d.departmentId        
       `;
 
@@ -75,7 +76,9 @@ const employeeRoutes = new Elysia({ prefix: "/employee" })
 
       // --- 3. สร้างชื่อไฟล์ที่ไม่ซ้ำกัน ---
       const fileName = `${crypto.randomUUID()}.${extension}`;
-      const filePath = `public/images/${fileName}`;
+      const filePath = `public/images/uploads/${fileName}`;
+
+      const empPictureUrl = `/uploads/${fileName}`;
 
       try {
         // --- 4. แปลง Base64 เป็น Buffer ---
@@ -91,6 +94,10 @@ const employeeRoutes = new Elysia({ prefix: "/employee" })
         set.status = 500; // Internal Server Error
         return { error: "ไม่สามารถบันทึกไฟล์ลงในเซิร์ฟเวอร์ได้" };
       }
+
+      insertData.empPicture = empPictureUrl;
+
+      // --- 6. บันทึกข้อมูลพนักงานลงฐานข้อมูล ---
 
       const newEmployee = await prisma.employee.create({
         data: insertData,
