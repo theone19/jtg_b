@@ -81,7 +81,7 @@ model Employee {
   birthDate    DateTime?
   idCardNumber String?   @db.VarChar(50)
   address      String?   @db.VarChar(255)
-  salary       Float?
+  salary       Float?    @default(0)
   remarks      String?   @db.VarChar(300)
   isWorking    Boolean   @default(true)
   empPicture   String?   @db.VarChar(255)
