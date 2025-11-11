@@ -188,6 +188,58 @@ exports.Prisma.EmployeeScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.CustomerScalarFieldEnum = {
+  customerId: 'customerId',
+  customerName: 'customerName',
+  contactName: 'contactName',
+  address: 'address',
+  city: 'city',
+  postalCode: 'postalCode',
+  country: 'country',
+  phone: 'phone',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ProductTypeScalarFieldEnum = {
+  productTypeId: 'productTypeId',
+  productTypeName: 'productTypeName',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.MetalTypeScalarFieldEnum = {
+  metalTypeId: 'metalTypeId',
+  metalTypeName: 'metalTypeName',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.UnitTypeScalarFieldEnum = {
+  unitTypeId: 'unitTypeId',
+  unitTypeName: 'unitTypeName',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.JobOrderScalarFieldEnum = {
+  jobOrderId: 'jobOrderId',
+  jobOrderNumber: 'jobOrderNumber',
+  customerId: 'customerId',
+  jobDate: 'jobDate',
+  customerBillNumber: 'customerBillNumber',
+  customerBillItemNo: 'customerBillItemNo',
+  productTypeId: 'productTypeId',
+  metalTypeId: 'metalTypeId',
+  qty: 'qty',
+  weight: 'weight',
+  dueDate: 'dueDate',
+  status: 'status',
+  remarks: 'remarks',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -204,7 +256,12 @@ exports.Prisma.ModelName = {
   MenuList: 'MenuList',
   SubMenu: 'SubMenu',
   Department: 'Department',
-  Employee: 'Employee'
+  Employee: 'Employee',
+  Customer: 'Customer',
+  ProductType: 'ProductType',
+  MetalType: 'MetalType',
+  UnitType: 'UnitType',
+  JobOrder: 'JobOrder'
 };
 
 /**

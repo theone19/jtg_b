@@ -90,3 +90,55 @@ model Employee {
 
   department Department @relation(fields: [departmentId], references: [departmentId])
 }
+
+model Customer {
+  customerId   Int      @id @default(autoincrement())
+  customerName String   @db.VarChar(100)
+  contactName  String?  @db.VarChar(100)
+  address      String?  @db.VarChar(255)
+  city         String?  @db.VarChar(50)
+  postalCode   String?  @db.VarChar(20)
+  country      String   @default("Thailand") @db.VarChar(50)
+  phone        String?  @db.VarChar(20)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model ProductType {
+  productTypeId   Int      @id @default(autoincrement())
+  productTypeName String   @db.VarChar(100)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model MetalType {
+  metalTypeId   Int      @id @default(autoincrement())
+  metalTypeName String   @db.VarChar(100)  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model UnitType {
+  unitTypeId   Int      @id @default(autoincrement())
+  unitTypeName String   @db.VarChar(100)  
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model JobOrder {
+  jobOrderId         Int       @id @default(autoincrement())
+  jobOrderNumber     String    @unique @db.VarChar(50)
+  customerId         Int
+  jobDate            DateTime?
+  customerBillNumber String?   @db.VarChar(50)
+  customerBillItemNo Int?  
+  productTypeId      Int
+  metalTypeId        Int
+  qty                Int       @default(1)
+  weight             Float?    @default(0)  
+  dueDate            DateTime?
+  status             String    @db.VarChar(5) @default("")
+  remarks            String?   @db.VarChar(300)
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+}

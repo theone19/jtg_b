@@ -59,7 +59,7 @@ const employeeRoutes = new Elysia({ prefix: "/employee" })
     async ({ body, set }) => {
       const { imageData, imageSave, ...insertData } = body;
 
-      if (imageSave) {
+      if (imageSave && !!imageData) {
         // --- 2. แยกส่วนประกอบของ Base64 Data URI ---
         // รูปแบบที่คาดหวัง: "data:image/png;base64,iVBORw0KGgo..."
         const matches = imageData.match(
@@ -99,7 +99,6 @@ const employeeRoutes = new Elysia({ prefix: "/employee" })
       }
 
       // --- 6. บันทึกข้อมูลพนักงานลงฐานข้อมูล ---
-
       const newEmployee = await prisma.employee.create({
         data: insertData,
       });
@@ -123,11 +122,12 @@ const employeeRoutes = new Elysia({ prefix: "/employee" })
         remarks: t.String(),
         isWorking: t.Boolean(),
         empPicture: __nullable__(t.String()),
-        imageData: t.String({
-          // ตรวจสอบเบื้องต้นว่ามี prefix ที่ถูกต้อง
-          pattern: "^data:image\/[a-zA-Z]+;base64,",
-          error: "imageData ต้องเป็น Base64 Data URI ที่ถูกต้อง",
-        }),
+        // imageData: t.String({
+        //   // ตรวจสอบเบื้องต้นว่ามี prefix ที่ถูกต้อง
+        //   pattern: "^data:image\/[a-zA-Z]+;base64,",
+        //   error: "imageData ต้องเป็น Base64 Data URI ที่ถูกต้อง",
+        // }),
+        imageData: __nullable__(t.String()),
         imageSave: t.Boolean(),
       }),
     }
@@ -143,6 +143,80 @@ const employeeRoutes = new Elysia({ prefix: "/employee" })
     },
     {
       body: EmployeePlainInputCreate,
+    }
+  )
+  .put(
+    "/updatepic/:id",
+    async ({ params, body, set }) => {
+      const { imageData, imageSave, ...updateData } = body;
+
+      if (imageSave && !!imageData) {
+        // --- 2. แยกส่วนประกอบของ Base64 Data URI ---
+        // รูปแบบที่คาดหวัง: "data:image/png;base64,iVBORw0KGgo..."
+        const matches = imageData.match(
+          /^data:(image\/([a-zA-Z]+));base64,(.+)$/
+        );
+
+        if (!matches || matches.length !== 4) {
+          set.status = 400; // Bad Request
+          return { error: "รูปแบบ Base64 (Data URI) ไม่ถูกต้อง" };
+        }
+
+        // const mimeType = matches[1]; // เช่น 'image/png'
+        const extension = matches[2]; // เช่น 'png', 'jpeg'
+        const base64Data = matches[3]; // ข้อมูล Base64 ที่แท้จริง
+
+        // --- 3. สร้างชื่อไฟล์ที่ไม่ซ้ำกัน ---
+        const fileName = `${crypto.randomUUID()}.${extension}`;
+        const filePath = `public/images/uploads/${fileName}`;
+
+        const empPictureUrl = `/uploads/${fileName}`;
+
+        try {
+          // --- 4. แปลง Base64 เป็น Buffer ---
+          // Buffer เป็นวิธีมาตรฐานในการจัดการข้อมูลไบนารี
+          const buffer = Buffer.from(base64Data, "base64");
+
+          // --- 5. บันทึกไฟล์ (ใช้ Bun.write) ---
+          // Bun.write() เป็น API ที่เร็วมากสำหรับ I/O ใน Bun
+          await Bun.write(filePath, buffer);
+        } catch (error) {
+          console.error("เกิดข้อผิดพลาดในการบันทึกไฟล์:", error);
+          set.status = 500; // Internal Server Error
+          return { error: "ไม่สามารถบันทึกไฟล์ลงในเซิร์ฟเวอร์ได้" };
+        }
+
+        updateData.empPicture = empPictureUrl;
+      }
+
+      // --- 6. บันทึกข้อมูลพนักงานลงฐานข้อมูล ---
+      const updatedEmployee = await prisma.employee.update({
+        where: { employeeId: Number(params.id) },
+        data: updateData,
+      });
+      set.status = 200; // OK
+      return updatedEmployee;
+    },
+    {
+      body: t.Object({
+        namePrefix: t.String(),
+        firstName: t.String(),
+        lastName: t.String(),
+        email: t.String(),
+        phoneNumber: t.String(),
+        hireDate: t.Date(),
+        jobTitle: t.String(),
+        departmentId: t.Integer(),
+        birthDate: t.Date(),
+        idCardNumber: __nullable__(t.String()),
+        address: t.String(),
+        salary: t.Number(),
+        remarks: t.String(),
+        isWorking: t.Boolean(),
+        empPicture: __nullable__(t.String()),        
+        imageData: __nullable__(t.String()),
+        imageSave: t.Boolean(),
+      }),
     }
   )
   .delete("/delete/:id", async ({ params }) => {
