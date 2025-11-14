@@ -35,7 +35,8 @@ const app = new Elysia({ prefix: rootApi })
       `${rootApi}/product-type`,
       `${rootApi}/metal-type`,
       `${rootApi}/unit-type`,
-      `${rootApi}/customer`
+      `${rootApi}/customer`,
+      `${rootApi}/job-order`
     ];
     // console.log(`Current path: ${path}`);
     // if (publicPaths.includes(path)) return;
@@ -143,6 +144,7 @@ const app = new Elysia({ prefix: rootApi })
   .use(import("./general/metalType"))
   .use(import("./general/unit"))
   .use(import("./general/customer"))
+  .use(import("./job/joborder"))
   .listen({
     port: Bun.env.PORT ? Number(Bun.env.PORT) : 3000,
     // hostname: "192.168.1.116"

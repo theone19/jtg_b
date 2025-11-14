@@ -113,14 +113,14 @@ model ProductType {
 
 model MetalType {
   metalTypeId   Int      @id @default(autoincrement())
-  metalTypeName String   @db.VarChar(100)  
+  metalTypeName String   @db.VarChar(100)
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 }
 
 model UnitType {
   unitTypeId   Int      @id @default(autoincrement())
-  unitTypeName String   @db.VarChar(100)  
+  unitTypeName String   @db.VarChar(100)
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 }
@@ -131,15 +131,17 @@ model JobOrder {
   customerId         Int
   jobDate            DateTime?
   customerBillNumber String?   @db.VarChar(50)
-  customerBillItemNo Int?  
+  customerBillItemNo Int?
   productTypeId      Int
   metalTypeId        Int
   qty                Int       @default(1)
   unitTypeId         Int
-  weight             Float?    @default(0)  
+  weight             Float?    @default(0)
+  jobDescription     String?   @db.VarChar(300)
+  pricePerUnit       Float?    @default(0)
   dueDate            DateTime?
   billPicture        String?   @db.VarChar(255)
-  status             String    @db.VarChar(5) @default("")
+  status             String    @default("") @db.VarChar(5)
   remarks            String?   @db.VarChar(300)
   createdAt          DateTime  @default(now())
   updatedAt          DateTime  @updatedAt

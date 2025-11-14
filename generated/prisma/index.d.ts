@@ -339,8 +339,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.18.0
-   * Query Engine version: 34b5a692b7bd79939a9a2c3ef97d816e749cda2f
+   * Prisma Client JS version: 6.19.0
+   * Query Engine version: 2ba551f319ab1df4bc874a89965d8b3641056773
    */
   export type PrismaVersion = {
     client: string
@@ -10500,6 +10500,7 @@ export namespace Prisma {
     qty: number | null
     unitTypeId: number | null
     weight: number | null
+    pricePerUnit: number | null
   }
 
   export type JobOrderSumAggregateOutputType = {
@@ -10511,6 +10512,7 @@ export namespace Prisma {
     qty: number | null
     unitTypeId: number | null
     weight: number | null
+    pricePerUnit: number | null
   }
 
   export type JobOrderMinAggregateOutputType = {
@@ -10525,6 +10527,8 @@ export namespace Prisma {
     qty: number | null
     unitTypeId: number | null
     weight: number | null
+    jobDescription: string | null
+    pricePerUnit: number | null
     dueDate: Date | null
     billPicture: string | null
     status: string | null
@@ -10545,6 +10549,8 @@ export namespace Prisma {
     qty: number | null
     unitTypeId: number | null
     weight: number | null
+    jobDescription: string | null
+    pricePerUnit: number | null
     dueDate: Date | null
     billPicture: string | null
     status: string | null
@@ -10565,6 +10571,8 @@ export namespace Prisma {
     qty: number
     unitTypeId: number
     weight: number
+    jobDescription: number
+    pricePerUnit: number
     dueDate: number
     billPicture: number
     status: number
@@ -10584,6 +10592,7 @@ export namespace Prisma {
     qty?: true
     unitTypeId?: true
     weight?: true
+    pricePerUnit?: true
   }
 
   export type JobOrderSumAggregateInputType = {
@@ -10595,6 +10604,7 @@ export namespace Prisma {
     qty?: true
     unitTypeId?: true
     weight?: true
+    pricePerUnit?: true
   }
 
   export type JobOrderMinAggregateInputType = {
@@ -10609,6 +10619,8 @@ export namespace Prisma {
     qty?: true
     unitTypeId?: true
     weight?: true
+    jobDescription?: true
+    pricePerUnit?: true
     dueDate?: true
     billPicture?: true
     status?: true
@@ -10629,6 +10641,8 @@ export namespace Prisma {
     qty?: true
     unitTypeId?: true
     weight?: true
+    jobDescription?: true
+    pricePerUnit?: true
     dueDate?: true
     billPicture?: true
     status?: true
@@ -10649,6 +10663,8 @@ export namespace Prisma {
     qty?: true
     unitTypeId?: true
     weight?: true
+    jobDescription?: true
+    pricePerUnit?: true
     dueDate?: true
     billPicture?: true
     status?: true
@@ -10756,6 +10772,8 @@ export namespace Prisma {
     qty: number
     unitTypeId: number
     weight: number | null
+    jobDescription: string | null
+    pricePerUnit: number | null
     dueDate: Date | null
     billPicture: string | null
     status: string
@@ -10795,6 +10813,8 @@ export namespace Prisma {
     qty?: boolean
     unitTypeId?: boolean
     weight?: boolean
+    jobDescription?: boolean
+    pricePerUnit?: boolean
     dueDate?: boolean
     billPicture?: boolean
     status?: boolean
@@ -10817,6 +10837,8 @@ export namespace Prisma {
     qty?: boolean
     unitTypeId?: boolean
     weight?: boolean
+    jobDescription?: boolean
+    pricePerUnit?: boolean
     dueDate?: boolean
     billPicture?: boolean
     status?: boolean
@@ -10825,7 +10847,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type JobOrderOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"jobOrderId" | "jobOrderNumber" | "customerId" | "jobDate" | "customerBillNumber" | "customerBillItemNo" | "productTypeId" | "metalTypeId" | "qty" | "unitTypeId" | "weight" | "dueDate" | "billPicture" | "status" | "remarks" | "createdAt" | "updatedAt", ExtArgs["result"]["jobOrder"]>
+  export type JobOrderOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"jobOrderId" | "jobOrderNumber" | "customerId" | "jobDate" | "customerBillNumber" | "customerBillItemNo" | "productTypeId" | "metalTypeId" | "qty" | "unitTypeId" | "weight" | "jobDescription" | "pricePerUnit" | "dueDate" | "billPicture" | "status" | "remarks" | "createdAt" | "updatedAt", ExtArgs["result"]["jobOrder"]>
 
   export type $JobOrderPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "JobOrder"
@@ -10842,6 +10864,8 @@ export namespace Prisma {
       qty: number
       unitTypeId: number
       weight: number | null
+      jobDescription: string | null
+      pricePerUnit: number | null
       dueDate: Date | null
       billPicture: string | null
       status: string
@@ -11228,6 +11252,8 @@ export namespace Prisma {
     readonly qty: FieldRef<"JobOrder", 'Int'>
     readonly unitTypeId: FieldRef<"JobOrder", 'Int'>
     readonly weight: FieldRef<"JobOrder", 'Float'>
+    readonly jobDescription: FieldRef<"JobOrder", 'String'>
+    readonly pricePerUnit: FieldRef<"JobOrder", 'Float'>
     readonly dueDate: FieldRef<"JobOrder", 'DateTime'>
     readonly billPicture: FieldRef<"JobOrder", 'String'>
     readonly status: FieldRef<"JobOrder", 'String'>
@@ -11709,6 +11735,8 @@ export namespace Prisma {
     qty: 'qty',
     unitTypeId: 'unitTypeId',
     weight: 'weight',
+    jobDescription: 'jobDescription',
+    pricePerUnit: 'pricePerUnit',
     dueDate: 'dueDate',
     billPicture: 'billPicture',
     status: 'status',
@@ -12437,6 +12465,8 @@ export namespace Prisma {
     qty?: IntFilter<"JobOrder"> | number
     unitTypeId?: IntFilter<"JobOrder"> | number
     weight?: FloatNullableFilter<"JobOrder"> | number | null
+    jobDescription?: StringNullableFilter<"JobOrder"> | string | null
+    pricePerUnit?: FloatNullableFilter<"JobOrder"> | number | null
     dueDate?: DateTimeNullableFilter<"JobOrder"> | Date | string | null
     billPicture?: StringNullableFilter<"JobOrder"> | string | null
     status?: StringFilter<"JobOrder"> | string
@@ -12457,6 +12487,8 @@ export namespace Prisma {
     qty?: SortOrder
     unitTypeId?: SortOrder
     weight?: SortOrderInput | SortOrder
+    jobDescription?: SortOrderInput | SortOrder
+    pricePerUnit?: SortOrderInput | SortOrder
     dueDate?: SortOrderInput | SortOrder
     billPicture?: SortOrderInput | SortOrder
     status?: SortOrder
@@ -12480,6 +12512,8 @@ export namespace Prisma {
     qty?: IntFilter<"JobOrder"> | number
     unitTypeId?: IntFilter<"JobOrder"> | number
     weight?: FloatNullableFilter<"JobOrder"> | number | null
+    jobDescription?: StringNullableFilter<"JobOrder"> | string | null
+    pricePerUnit?: FloatNullableFilter<"JobOrder"> | number | null
     dueDate?: DateTimeNullableFilter<"JobOrder"> | Date | string | null
     billPicture?: StringNullableFilter<"JobOrder"> | string | null
     status?: StringFilter<"JobOrder"> | string
@@ -12500,6 +12534,8 @@ export namespace Prisma {
     qty?: SortOrder
     unitTypeId?: SortOrder
     weight?: SortOrderInput | SortOrder
+    jobDescription?: SortOrderInput | SortOrder
+    pricePerUnit?: SortOrderInput | SortOrder
     dueDate?: SortOrderInput | SortOrder
     billPicture?: SortOrderInput | SortOrder
     status?: SortOrder
@@ -12528,6 +12564,8 @@ export namespace Prisma {
     qty?: IntWithAggregatesFilter<"JobOrder"> | number
     unitTypeId?: IntWithAggregatesFilter<"JobOrder"> | number
     weight?: FloatNullableWithAggregatesFilter<"JobOrder"> | number | null
+    jobDescription?: StringNullableWithAggregatesFilter<"JobOrder"> | string | null
+    pricePerUnit?: FloatNullableWithAggregatesFilter<"JobOrder"> | number | null
     dueDate?: DateTimeNullableWithAggregatesFilter<"JobOrder"> | Date | string | null
     billPicture?: StringNullableWithAggregatesFilter<"JobOrder"> | string | null
     status?: StringWithAggregatesFilter<"JobOrder"> | string
@@ -13224,6 +13262,8 @@ export namespace Prisma {
     qty?: number
     unitTypeId: number
     weight?: number | null
+    jobDescription?: string | null
+    pricePerUnit?: number | null
     dueDate?: Date | string | null
     billPicture?: string | null
     status?: string
@@ -13244,6 +13284,8 @@ export namespace Prisma {
     qty?: number
     unitTypeId: number
     weight?: number | null
+    jobDescription?: string | null
+    pricePerUnit?: number | null
     dueDate?: Date | string | null
     billPicture?: string | null
     status?: string
@@ -13263,6 +13305,8 @@ export namespace Prisma {
     qty?: IntFieldUpdateOperationsInput | number
     unitTypeId?: IntFieldUpdateOperationsInput | number
     weight?: NullableFloatFieldUpdateOperationsInput | number | null
+    jobDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    pricePerUnit?: NullableFloatFieldUpdateOperationsInput | number | null
     dueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     billPicture?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
@@ -13283,6 +13327,8 @@ export namespace Prisma {
     qty?: IntFieldUpdateOperationsInput | number
     unitTypeId?: IntFieldUpdateOperationsInput | number
     weight?: NullableFloatFieldUpdateOperationsInput | number | null
+    jobDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    pricePerUnit?: NullableFloatFieldUpdateOperationsInput | number | null
     dueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     billPicture?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
@@ -13302,6 +13348,8 @@ export namespace Prisma {
     qty?: number
     unitTypeId: number
     weight?: number | null
+    jobDescription?: string | null
+    pricePerUnit?: number | null
     dueDate?: Date | string | null
     billPicture?: string | null
     status?: string
@@ -13321,6 +13369,8 @@ export namespace Prisma {
     qty?: IntFieldUpdateOperationsInput | number
     unitTypeId?: IntFieldUpdateOperationsInput | number
     weight?: NullableFloatFieldUpdateOperationsInput | number | null
+    jobDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    pricePerUnit?: NullableFloatFieldUpdateOperationsInput | number | null
     dueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     billPicture?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
@@ -13341,6 +13391,8 @@ export namespace Prisma {
     qty?: IntFieldUpdateOperationsInput | number
     unitTypeId?: IntFieldUpdateOperationsInput | number
     weight?: NullableFloatFieldUpdateOperationsInput | number | null
+    jobDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    pricePerUnit?: NullableFloatFieldUpdateOperationsInput | number | null
     dueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     billPicture?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
@@ -13989,6 +14041,8 @@ export namespace Prisma {
     qty?: SortOrder
     unitTypeId?: SortOrder
     weight?: SortOrder
+    jobDescription?: SortOrder
+    pricePerUnit?: SortOrder
     dueDate?: SortOrder
     billPicture?: SortOrder
     status?: SortOrder
@@ -14006,6 +14060,7 @@ export namespace Prisma {
     qty?: SortOrder
     unitTypeId?: SortOrder
     weight?: SortOrder
+    pricePerUnit?: SortOrder
   }
 
   export type JobOrderMaxOrderByAggregateInput = {
@@ -14020,6 +14075,8 @@ export namespace Prisma {
     qty?: SortOrder
     unitTypeId?: SortOrder
     weight?: SortOrder
+    jobDescription?: SortOrder
+    pricePerUnit?: SortOrder
     dueDate?: SortOrder
     billPicture?: SortOrder
     status?: SortOrder
@@ -14040,6 +14097,8 @@ export namespace Prisma {
     qty?: SortOrder
     unitTypeId?: SortOrder
     weight?: SortOrder
+    jobDescription?: SortOrder
+    pricePerUnit?: SortOrder
     dueDate?: SortOrder
     billPicture?: SortOrder
     status?: SortOrder
@@ -14057,6 +14116,7 @@ export namespace Prisma {
     qty?: SortOrder
     unitTypeId?: SortOrder
     weight?: SortOrder
+    pricePerUnit?: SortOrder
   }
 
   export type StringFieldUpdateOperationsInput = {

@@ -137,6 +137,8 @@ model JobOrder {
   qty                Int       @default(1)
   unitTypeId         Int
   weight             Float?    @default(0)
+  jobDescription     String?   @db.VarChar(300)
+  pricePerUnit       Float?    @default(0)
   dueDate            DateTime?
   billPicture        String?   @db.VarChar(255)
   status             String    @default("") @db.VarChar(5)
