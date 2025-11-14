@@ -135,8 +135,10 @@ model JobOrder {
   productTypeId      Int
   metalTypeId        Int
   qty                Int       @default(1)
+  unitTypeId         Int
   weight             Float?    @default(0)  
   dueDate            DateTime?
+  billPicture        String?   @db.VarChar(255)
   status             String    @db.VarChar(5) @default("")
   remarks            String?   @db.VarChar(300)
   createdAt          DateTime  @default(now())

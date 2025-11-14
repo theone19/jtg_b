@@ -10498,6 +10498,7 @@ export namespace Prisma {
     productTypeId: number | null
     metalTypeId: number | null
     qty: number | null
+    unitTypeId: number | null
     weight: number | null
   }
 
@@ -10508,6 +10509,7 @@ export namespace Prisma {
     productTypeId: number | null
     metalTypeId: number | null
     qty: number | null
+    unitTypeId: number | null
     weight: number | null
   }
 
@@ -10521,8 +10523,10 @@ export namespace Prisma {
     productTypeId: number | null
     metalTypeId: number | null
     qty: number | null
+    unitTypeId: number | null
     weight: number | null
     dueDate: Date | null
+    billPicture: string | null
     status: string | null
     remarks: string | null
     createdAt: Date | null
@@ -10539,8 +10543,10 @@ export namespace Prisma {
     productTypeId: number | null
     metalTypeId: number | null
     qty: number | null
+    unitTypeId: number | null
     weight: number | null
     dueDate: Date | null
+    billPicture: string | null
     status: string | null
     remarks: string | null
     createdAt: Date | null
@@ -10557,8 +10563,10 @@ export namespace Prisma {
     productTypeId: number
     metalTypeId: number
     qty: number
+    unitTypeId: number
     weight: number
     dueDate: number
+    billPicture: number
     status: number
     remarks: number
     createdAt: number
@@ -10574,6 +10582,7 @@ export namespace Prisma {
     productTypeId?: true
     metalTypeId?: true
     qty?: true
+    unitTypeId?: true
     weight?: true
   }
 
@@ -10584,6 +10593,7 @@ export namespace Prisma {
     productTypeId?: true
     metalTypeId?: true
     qty?: true
+    unitTypeId?: true
     weight?: true
   }
 
@@ -10597,8 +10607,10 @@ export namespace Prisma {
     productTypeId?: true
     metalTypeId?: true
     qty?: true
+    unitTypeId?: true
     weight?: true
     dueDate?: true
+    billPicture?: true
     status?: true
     remarks?: true
     createdAt?: true
@@ -10615,8 +10627,10 @@ export namespace Prisma {
     productTypeId?: true
     metalTypeId?: true
     qty?: true
+    unitTypeId?: true
     weight?: true
     dueDate?: true
+    billPicture?: true
     status?: true
     remarks?: true
     createdAt?: true
@@ -10633,8 +10647,10 @@ export namespace Prisma {
     productTypeId?: true
     metalTypeId?: true
     qty?: true
+    unitTypeId?: true
     weight?: true
     dueDate?: true
+    billPicture?: true
     status?: true
     remarks?: true
     createdAt?: true
@@ -10738,8 +10754,10 @@ export namespace Prisma {
     productTypeId: number
     metalTypeId: number
     qty: number
+    unitTypeId: number
     weight: number | null
     dueDate: Date | null
+    billPicture: string | null
     status: string
     remarks: string | null
     createdAt: Date
@@ -10775,8 +10793,10 @@ export namespace Prisma {
     productTypeId?: boolean
     metalTypeId?: boolean
     qty?: boolean
+    unitTypeId?: boolean
     weight?: boolean
     dueDate?: boolean
+    billPicture?: boolean
     status?: boolean
     remarks?: boolean
     createdAt?: boolean
@@ -10795,15 +10815,17 @@ export namespace Prisma {
     productTypeId?: boolean
     metalTypeId?: boolean
     qty?: boolean
+    unitTypeId?: boolean
     weight?: boolean
     dueDate?: boolean
+    billPicture?: boolean
     status?: boolean
     remarks?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type JobOrderOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"jobOrderId" | "jobOrderNumber" | "customerId" | "jobDate" | "customerBillNumber" | "customerBillItemNo" | "productTypeId" | "metalTypeId" | "qty" | "weight" | "dueDate" | "status" | "remarks" | "createdAt" | "updatedAt", ExtArgs["result"]["jobOrder"]>
+  export type JobOrderOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"jobOrderId" | "jobOrderNumber" | "customerId" | "jobDate" | "customerBillNumber" | "customerBillItemNo" | "productTypeId" | "metalTypeId" | "qty" | "unitTypeId" | "weight" | "dueDate" | "billPicture" | "status" | "remarks" | "createdAt" | "updatedAt", ExtArgs["result"]["jobOrder"]>
 
   export type $JobOrderPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "JobOrder"
@@ -10818,8 +10840,10 @@ export namespace Prisma {
       productTypeId: number
       metalTypeId: number
       qty: number
+      unitTypeId: number
       weight: number | null
       dueDate: Date | null
+      billPicture: string | null
       status: string
       remarks: string | null
       createdAt: Date
@@ -11202,8 +11226,10 @@ export namespace Prisma {
     readonly productTypeId: FieldRef<"JobOrder", 'Int'>
     readonly metalTypeId: FieldRef<"JobOrder", 'Int'>
     readonly qty: FieldRef<"JobOrder", 'Int'>
+    readonly unitTypeId: FieldRef<"JobOrder", 'Int'>
     readonly weight: FieldRef<"JobOrder", 'Float'>
     readonly dueDate: FieldRef<"JobOrder", 'DateTime'>
+    readonly billPicture: FieldRef<"JobOrder", 'String'>
     readonly status: FieldRef<"JobOrder", 'String'>
     readonly remarks: FieldRef<"JobOrder", 'String'>
     readonly createdAt: FieldRef<"JobOrder", 'DateTime'>
@@ -11681,8 +11707,10 @@ export namespace Prisma {
     productTypeId: 'productTypeId',
     metalTypeId: 'metalTypeId',
     qty: 'qty',
+    unitTypeId: 'unitTypeId',
     weight: 'weight',
     dueDate: 'dueDate',
+    billPicture: 'billPicture',
     status: 'status',
     remarks: 'remarks',
     createdAt: 'createdAt',
@@ -12407,8 +12435,10 @@ export namespace Prisma {
     productTypeId?: IntFilter<"JobOrder"> | number
     metalTypeId?: IntFilter<"JobOrder"> | number
     qty?: IntFilter<"JobOrder"> | number
+    unitTypeId?: IntFilter<"JobOrder"> | number
     weight?: FloatNullableFilter<"JobOrder"> | number | null
     dueDate?: DateTimeNullableFilter<"JobOrder"> | Date | string | null
+    billPicture?: StringNullableFilter<"JobOrder"> | string | null
     status?: StringFilter<"JobOrder"> | string
     remarks?: StringNullableFilter<"JobOrder"> | string | null
     createdAt?: DateTimeFilter<"JobOrder"> | Date | string
@@ -12425,8 +12455,10 @@ export namespace Prisma {
     productTypeId?: SortOrder
     metalTypeId?: SortOrder
     qty?: SortOrder
+    unitTypeId?: SortOrder
     weight?: SortOrderInput | SortOrder
     dueDate?: SortOrderInput | SortOrder
+    billPicture?: SortOrderInput | SortOrder
     status?: SortOrder
     remarks?: SortOrderInput | SortOrder
     createdAt?: SortOrder
@@ -12446,8 +12478,10 @@ export namespace Prisma {
     productTypeId?: IntFilter<"JobOrder"> | number
     metalTypeId?: IntFilter<"JobOrder"> | number
     qty?: IntFilter<"JobOrder"> | number
+    unitTypeId?: IntFilter<"JobOrder"> | number
     weight?: FloatNullableFilter<"JobOrder"> | number | null
     dueDate?: DateTimeNullableFilter<"JobOrder"> | Date | string | null
+    billPicture?: StringNullableFilter<"JobOrder"> | string | null
     status?: StringFilter<"JobOrder"> | string
     remarks?: StringNullableFilter<"JobOrder"> | string | null
     createdAt?: DateTimeFilter<"JobOrder"> | Date | string
@@ -12464,8 +12498,10 @@ export namespace Prisma {
     productTypeId?: SortOrder
     metalTypeId?: SortOrder
     qty?: SortOrder
+    unitTypeId?: SortOrder
     weight?: SortOrderInput | SortOrder
     dueDate?: SortOrderInput | SortOrder
+    billPicture?: SortOrderInput | SortOrder
     status?: SortOrder
     remarks?: SortOrderInput | SortOrder
     createdAt?: SortOrder
@@ -12490,8 +12526,10 @@ export namespace Prisma {
     productTypeId?: IntWithAggregatesFilter<"JobOrder"> | number
     metalTypeId?: IntWithAggregatesFilter<"JobOrder"> | number
     qty?: IntWithAggregatesFilter<"JobOrder"> | number
+    unitTypeId?: IntWithAggregatesFilter<"JobOrder"> | number
     weight?: FloatNullableWithAggregatesFilter<"JobOrder"> | number | null
     dueDate?: DateTimeNullableWithAggregatesFilter<"JobOrder"> | Date | string | null
+    billPicture?: StringNullableWithAggregatesFilter<"JobOrder"> | string | null
     status?: StringWithAggregatesFilter<"JobOrder"> | string
     remarks?: StringNullableWithAggregatesFilter<"JobOrder"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"JobOrder"> | Date | string
@@ -13184,8 +13222,10 @@ export namespace Prisma {
     productTypeId: number
     metalTypeId: number
     qty?: number
+    unitTypeId: number
     weight?: number | null
     dueDate?: Date | string | null
+    billPicture?: string | null
     status?: string
     remarks?: string | null
     createdAt?: Date | string
@@ -13202,8 +13242,10 @@ export namespace Prisma {
     productTypeId: number
     metalTypeId: number
     qty?: number
+    unitTypeId: number
     weight?: number | null
     dueDate?: Date | string | null
+    billPicture?: string | null
     status?: string
     remarks?: string | null
     createdAt?: Date | string
@@ -13219,8 +13261,10 @@ export namespace Prisma {
     productTypeId?: IntFieldUpdateOperationsInput | number
     metalTypeId?: IntFieldUpdateOperationsInput | number
     qty?: IntFieldUpdateOperationsInput | number
+    unitTypeId?: IntFieldUpdateOperationsInput | number
     weight?: NullableFloatFieldUpdateOperationsInput | number | null
     dueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    billPicture?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     remarks?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -13237,8 +13281,10 @@ export namespace Prisma {
     productTypeId?: IntFieldUpdateOperationsInput | number
     metalTypeId?: IntFieldUpdateOperationsInput | number
     qty?: IntFieldUpdateOperationsInput | number
+    unitTypeId?: IntFieldUpdateOperationsInput | number
     weight?: NullableFloatFieldUpdateOperationsInput | number | null
     dueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    billPicture?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     remarks?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -13254,8 +13300,10 @@ export namespace Prisma {
     productTypeId: number
     metalTypeId: number
     qty?: number
+    unitTypeId: number
     weight?: number | null
     dueDate?: Date | string | null
+    billPicture?: string | null
     status?: string
     remarks?: string | null
     createdAt?: Date | string
@@ -13271,8 +13319,10 @@ export namespace Prisma {
     productTypeId?: IntFieldUpdateOperationsInput | number
     metalTypeId?: IntFieldUpdateOperationsInput | number
     qty?: IntFieldUpdateOperationsInput | number
+    unitTypeId?: IntFieldUpdateOperationsInput | number
     weight?: NullableFloatFieldUpdateOperationsInput | number | null
     dueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    billPicture?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     remarks?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -13289,8 +13339,10 @@ export namespace Prisma {
     productTypeId?: IntFieldUpdateOperationsInput | number
     metalTypeId?: IntFieldUpdateOperationsInput | number
     qty?: IntFieldUpdateOperationsInput | number
+    unitTypeId?: IntFieldUpdateOperationsInput | number
     weight?: NullableFloatFieldUpdateOperationsInput | number | null
     dueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    billPicture?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     remarks?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -13935,8 +13987,10 @@ export namespace Prisma {
     productTypeId?: SortOrder
     metalTypeId?: SortOrder
     qty?: SortOrder
+    unitTypeId?: SortOrder
     weight?: SortOrder
     dueDate?: SortOrder
+    billPicture?: SortOrder
     status?: SortOrder
     remarks?: SortOrder
     createdAt?: SortOrder
@@ -13950,6 +14004,7 @@ export namespace Prisma {
     productTypeId?: SortOrder
     metalTypeId?: SortOrder
     qty?: SortOrder
+    unitTypeId?: SortOrder
     weight?: SortOrder
   }
 
@@ -13963,8 +14018,10 @@ export namespace Prisma {
     productTypeId?: SortOrder
     metalTypeId?: SortOrder
     qty?: SortOrder
+    unitTypeId?: SortOrder
     weight?: SortOrder
     dueDate?: SortOrder
+    billPicture?: SortOrder
     status?: SortOrder
     remarks?: SortOrder
     createdAt?: SortOrder
@@ -13981,8 +14038,10 @@ export namespace Prisma {
     productTypeId?: SortOrder
     metalTypeId?: SortOrder
     qty?: SortOrder
+    unitTypeId?: SortOrder
     weight?: SortOrder
     dueDate?: SortOrder
+    billPicture?: SortOrder
     status?: SortOrder
     remarks?: SortOrder
     createdAt?: SortOrder
@@ -13996,6 +14055,7 @@ export namespace Prisma {
     productTypeId?: SortOrder
     metalTypeId?: SortOrder
     qty?: SortOrder
+    unitTypeId?: SortOrder
     weight?: SortOrder
   }
 
